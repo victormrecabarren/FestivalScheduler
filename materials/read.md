@@ -23,12 +23,21 @@ Wireframe:
   - Handle get, put, delete routes using express (Controller)
 
 ## A RESTful app, with full CRUD, which:
-  - GET for displaying all acts **(Index)**,
-  - GET to show a form to add information to personal schedule item **(New)**
-  - POST to add new information such as pictures or comments to personal schedule item **(Create)**
+  - GET for displaying all acts **(Index)**
+
+  - GET to show a form to add new act to the lineup (for admin only) **(New)**
+
+  - POST to add new act to lineup (admin use only) **(Create)**
+
   - GET to show each artist/act page **(Show)**
-  - GET to show page to edit personal schedule item **(Edit)**
-  - PUT to change info for personal schedule in database **(Update)**
+
+  - GET to show page to edit festival main lineup or times (admin use only) **(Edit)**
+
+  - PUT to add new information such as pictures or comments to personal schedule item **(Update)**
+
   - DELETE to remove items from personal schedule if unwanted **(Destroy)**
 
-  
+  # Extras!
+   - Will use EJS partials
+   - Will use Bootstrap
+   - Will try to have ability to upload photos and view live location of user and friends. Hoping to get the "LIVE!" tab to be very interactive and responsive to time of day and location.

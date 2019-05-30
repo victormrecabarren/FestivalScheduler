@@ -1,0 +1,34 @@
+# Problem:
+"I'm going to a festival and there are several stages, artists, and set times and can't figure out how to set up my schedule to make sure I don't miss acts I really want to see!"
+
+# General App Idea:
+A display of the full itinerary for the festival that makes intuitive which acts happen simultaneously, and allows the user to select acts to fill up a personal non-conflicting schedule. The app will include show pages for each act, as well as a "live" tab that, when open, will let user see where they are located on the map of the festival as well as which acts are live at the time.
+
+# Who Would Use It:
+Festival goers!
+
+Wireframe:
+![](https://github.com/victormrecabarren/FestivalScheduler/blob/master/IMG_4842.jpeg?raw=true "Logo Title Text 1")
+
+
+## I plan to use:
+- Node.js
+- Mongoose
+- Express
+- EJS
+
+## In order to create an MVC file structure with:
+  - Collection of all  Artists as well as collection of personal Acts (Models)
+  - Index page for personal schedule and full festival schedule, and show page for each act (Views)
+  - Handle get, put, delete routes using express (Controller)
+
+## A RESTful app, with full CRUD, which:
+  - GET for displaying all acts **(Index)**,
+  - GET to show a form to add information to personal schedule item **(New)**
+  - POST to add new information such as pictures or comments to personal schedule item **(Create)**
+  - GET to show each artist/act page **(Show)**
+  - GET to show page to edit personal schedule item **(Edit)**
+  - PUT to change info for personal schedule in database **(Update)**
+  - DELETE to remove items from personal schedule if unwanted **(Destroy)**
+
+  

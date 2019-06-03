@@ -42,13 +42,16 @@ const addItineraryItem = (info) => {
 
 
 router.get('/', (req, res) => {
-  res.send('itinerary page')
+  SaturdayItinerary.find({}, (err, data) => {
+    res.render('itinerary.ejs', {
+      itinerary: data
+    })
+  })
 });
 
 router.post('/', (req, res) => {
     addItineraryItem(req.body)
     res.send(req.body)
-
 })
 
 

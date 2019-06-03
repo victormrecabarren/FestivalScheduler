@@ -6,6 +6,8 @@ const itinerarySchema = new mongoose.Schema({
   flog: {type: Boolean, required: true},
   startTime: {type: String, required: true},
   endTime: {type: String, required: true},
+  trueStartTime: {type: Date, required: true},
+  trueEndTime: Date,
   img: {type: String},
   album: {type: String},
   albumCover: {type: String},

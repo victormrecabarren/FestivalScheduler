@@ -6,11 +6,10 @@
   </head>
   <body>
       <form action="/CampFlogGnaw/Saturday/MyItinerary" method="post">
-
-    <%for (let i=0; i < saturdaylineup.length; i++) {%>
+        <%for (let i=0; i < saturdaylineup.length; i++) {%>
        <% if (saturdaylineup[i].camp === true) { %>
-      <h3><%=saturdaylineup[i].artist%></h3>
-      <img src="<%=saturdaylineup[i].img%>" height="200px">
+         <h3><%=saturdaylineup[i].artist%></h3>
+        <img src="<%=saturdaylineup[i].img%>" height="200px">
 
         <input
           type="hidden"
@@ -34,6 +33,34 @@
             <% } %>
           /> -->
       <%  }%>
+
+      <% if (saturdaylineup[i].flog === true) { %>
+        <h3><%=saturdaylineup[i].artist%></h3>
+       <img src="<%=saturdaylineup[i].img%>" height="200px">
+
+       <input
+         type="hidden"
+         name="<%=saturdaylineup[i].id%>"
+         value="0"
+         >
+         <input
+           type="checkbox"
+           name="<%=saturdaylineup[i].id%>"
+           value="1"
+           <% if (saturdaylineup[i].checked) { %>
+             checked
+           <% } %>
+           />
+         <!-- <input
+           type="checkbox"
+           name="half"
+           value="on"
+           <% if (saturdaylineup[i].half) { %>
+             checked
+           <% } %>
+         /> -->
+     <%  }%>
+
 
     <%}%>
 

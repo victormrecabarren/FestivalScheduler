@@ -5,13 +5,15 @@
     <title></title>
   </head>
   <body>
-
       <form action="/CampFlogGnaw/Saturday/MyItinerary" method="post">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
         <%for (let i=0; i < saturdaylineup.length; i++) {%>
        <% if (saturdaylineup[i].camp === true) { %>
-         <h3><%=saturdaylineup[i].artist%></h3>
+        <h3><%=saturdaylineup[i].artist%></h3>
         <img src="<%=saturdaylineup[i].img%>" height="200px">
-
         <input
           type="hidden"
           name="<%=saturdaylineup[i].id%>"
@@ -34,11 +36,13 @@
             <% } %>
           /> -->
       <%  }%>
-
+      <% } %>
+      </div>
+      <div class="col-sm">
+        <%for (let i=0; i < saturdaylineup.length; i++) {%>
       <% if (saturdaylineup[i].flog === true) { %>
         <h3><%=saturdaylineup[i].artist%></h3>
        <img src="<%=saturdaylineup[i].img%>" height="200px">
-
        <input
          type="hidden"
          name="<%=saturdaylineup[i].id%>"
@@ -61,9 +65,11 @@
            <% } %>
          /> -->
      <%  }%>
-
-
     <%}%>
+        </div>
+      </div>
+    </div>
+
 
       <input type="submit" name="" value="submit">
 

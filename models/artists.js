@@ -14,7 +14,10 @@ const artistSchema = new mongoose.Schema({
   albumCover: {type: String},
   bio: {type: String},
   checked: {type: Boolean, default: false},
-  half: Boolean
+  half: Boolean,
+  comments: String,
+  rating: {type: Number, min: 0, max: 5},
+  favorite: String
 });
 
 const SaturdayArtist = mongoose.model('SaturdayArtist', artistSchema);

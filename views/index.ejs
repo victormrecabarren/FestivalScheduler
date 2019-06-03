@@ -8,6 +8,7 @@
       <form action="/CampFlogGnaw/Saturday/MyItinerary" method="post">
 
     <%for (let i=0; i < saturdaylineup.length; i++) {%>
+       <% if (saturdaylineup[i].camp === true) { %>
       <h3><%=saturdaylineup[i].artist%></h3>
       <img src="<%=saturdaylineup[i].img%>" height="200px">
 
@@ -32,6 +33,7 @@
               checked
             <% } %>
           /> -->
+      <%  }%>
 
     <%}%>
 

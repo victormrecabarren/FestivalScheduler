@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const SaturdayItinerary = require('../models/itinerary');
 const SaturdayLineup = require('../models/artists');
 
 
@@ -28,21 +27,13 @@ const addItineraryItem = (info) => {
   SaturdayLineup.updateMany({_id: {$in: checkedArray}}, {$set: {checked: true}}, {multi: true}, (err, checked) => {
     if (err) console.log(err)
     else console.log(checked);
-
-    SaturdayLineup.find({checked:true}, (errormessage, newItinerary) => {
-      mongoose.connection.db.dropCollection('saturdayitineraryitems', (er, result) => {
-           SaturdayItinerary.insertMany(newItinerary, (error, docs) => {
-           console.log('done');
-           });
-      });
-    })
   });
 }
 
 
 
 router.get('/', (req, res) => {
-  SaturdayItinerary.find({}, (err, data) => {
+  SaturdayLineup.find({checked: true}, (err, data) => {
     res.render('itinerary.ejs', {
       itinerary: data
     })

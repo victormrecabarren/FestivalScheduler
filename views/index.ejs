@@ -5,14 +5,33 @@
     <title></title>
   </head>
   <body>
-          <form action="/CampFlogGnaw/Saturday/MyItinerary" method="post">
+      <form action="/CampFlogGnaw/Saturday/MyItinerary" method="post">
 
     <%for (let i=0; i < saturdaylineup.length; i++) {%>
       <h3><%=saturdaylineup[i].artist%></h3>
       <img src="<%=saturdaylineup[i].img%>" height="200px">
 
-        <input type="checkbox" name="<%=i%>"
-         value="<%=saturdaylineup[i].id%>">
+        <input
+          type="hidden"
+          name="<%=saturdaylineup[i].id%>"
+          value="0"
+          >
+          <input
+            type="checkbox"
+            name="<%=saturdaylineup[i].id%>"
+            value="1"
+            <% if (saturdaylineup[i].checked) { %>
+              checked
+            <% } %>
+            />
+          <!-- <input
+            type="checkbox"
+            name="half"
+            value="on"
+            <% if (saturdaylineup[i].half) { %>
+              checked
+            <% } %>
+          /> -->
 
     <%}%>
 

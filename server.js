@@ -3,7 +3,8 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const methodOverride = require('method-override');
-const lineupController = require('./controllers/lineup')
+const saturdayLineupController = require('./controllers/saturdaylineup')
+const saturdayItineraryController = require('./controllers/saturdayitinerary')
 
 // set up mongoose
 const mongoose = require('mongoose');
@@ -19,7 +20,8 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
 // use lineup routes
-app.use('/CampFlogGnaw', lineupController)
+app.use('/CampFlogGnaw/Saturday/Lineup', saturdayLineupController);
+app.use('/CampFlogGnaw/Saturday/MyItinerary', saturdayItineraryController);
 
 // listener
 app.listen(port, () => {

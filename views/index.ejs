@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <% include ./partials/head.ejs %>
     <title></title>
   </head>
   <body>
+    <h5>test</h5>
       <form action="/CampFlogGnaw/Saturday/MyItinerary" method="post">
         <%for (let i=0; i < saturdaylineup.length; i++) {%>
        <% if (saturdaylineup[i].camp === true) { %>

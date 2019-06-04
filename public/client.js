@@ -25,22 +25,30 @@ const hideConflicting = (selected) => {
 
 // iterate through all other acts to compare their times to selected times
   for (let i=0; i < $('.selection').length; i++) {
-    // line inside of conditional creates date objects of elements we are checking in array
-    // currently just checking if starts later to make sure working. need to devise logic to identify "conflicting"
+    // set time of compare items to js date objects
     let compareStart = new Date($('.selection').eq(i).attr('starttime'));
     let compareEnd = new Date($('.selection').eq(i).attr('endtime'));
 
-
+    // check one type of configuration of conflicting schedule
     if (compareEnd > selectedStart && compareEnd < selectedEnd) {
-      console.log('this show ends after i start, but it also before i do. in other words, its happening at the same time as me. ');
-      console.log($('.selection').eq(i));
+      // disable conflicting
+      $('.selection').eq(i).attr('disabled', 'disabled')
+
+      // check if time to see opening of conflicting
       if ((selectedStart - compareStart)/1000/60 >= 10) {
-        console.log('catch first ten mins of', $('.selection').eq(i), '?');
+        console.log('catch opening of', $('.selection').eq(i), '?');
       }
+
+      // check other type of configuration of conflicting
     } else if (compareStart < selectedEnd && compareStart > selectedStart) {
 
-      console.log('this show starts before I end, but after I start. in other words, it starts in the middle of my show');
-      console.log($('.selection').eq(i));
+      //disable conflicting
+      $('.selection').eq(i).attr('disabled', 'disabled')
+
+      // check if time to see finale of conflicting
+      if ((compareEnd - selectedEnd)/1000/60 >=10) {
+        console.log('catch finale of', $('.selection').eq(i), '?');
+      }
     }
   }
 

@@ -7,6 +7,7 @@
   <body>
       <form action="/CampFlogGnaw/Saturday/MyItinerary" method="post">
 
+        <!-- Camp Stage -->
         <div class="container">
           <div class="row">
             <div class="col-sm">
@@ -38,6 +39,8 @@
       <%  }%>
       <% } %>
       </div>
+
+      <!-- Flog Stage -->
       <div class="col-sm">
         <%for (let i=0; i < saturdaylineup.length; i++) {%>
       <% if (saturdaylineup[i].flog === true) { %>

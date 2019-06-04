@@ -34,7 +34,11 @@ const hideConflicting = (selected) => {
     if (compareEnd > selectedStart && compareEnd < selectedEnd) {
       console.log('this show ends after i start, but it also before i do. in other words, its happening at the same time as me. ');
       console.log($('.selection').eq(i));
+      if ((selectedStart - compareStart)/1000/60 >= 10) {
+        console.log('catch first ten mins of', $('.selection').eq(i), '?');
+      }
     } else if (compareStart < selectedEnd && compareStart > selectedStart) {
+
       console.log('this show starts before I end, but after I start. in other words, it starts in the middle of my show');
       console.log($('.selection').eq(i));
     }

@@ -11,20 +11,23 @@
         <div class="container">
           <div class="row">
             <div class="col-sm">
-        <%for (let i=0; i < saturdaylineup.length; i++) {%>
-       <% if (saturdaylineup[i].camp === true) { %>
-        <h3><%=saturdaylineup[i].artist%></h3>
-        <img src="<%=saturdaylineup[i].img%>" height="200px">
+        <%for (let i=0; i < saturdayLineup.length; i++) {%>
+       <% if (saturdayLineup[i].camp === true) { %>
+        <h3><%=saturdayLineup[i].artist%></h3>
+        <img src="<%=saturdayLineup[i].img%>" height="200px">
         <input
           type="hidden"
-          name="<%=saturdaylineup[i].id%>"
+          name="<%=saturdayLineup[i].id%>"
           value="0"
           >
           <input
             type="checkbox"
-            name="<%=saturdaylineup[i].id%>"
+            class="selection"
+            name="<%=saturdayLineup[i].id%>"
+            startTime="<%=saturdayLineup[i].trueStartTime%>"
+            endTime=="<%=saturdayLineup[i].trueEndTime%>"
             value="1"
-            <% if (saturdaylineup[i].checked) { %>
+            <% if (saturdayLineup[i].checked) { %>
               checked
             <% } %>
             />
@@ -32,7 +35,7 @@
             type="checkbox"
             name="half"
             value="on"
-            <% if (saturdaylineup[i].half) { %>
+            <% if (saturdayLineup[i].half) { %>
               checked
             <% } %>
           /> -->
@@ -42,20 +45,23 @@
 
       <!-- Flog Stage -->
       <div class="col-sm">
-        <%for (let i=0; i < saturdaylineup.length; i++) {%>
-      <% if (saturdaylineup[i].flog === true) { %>
-        <h3><%=saturdaylineup[i].artist%></h3>
-       <img src="<%=saturdaylineup[i].img%>" height="200px">
+        <%for (let i=0; i < saturdayLineup.length; i++) {%>
+      <% if (saturdayLineup[i].flog === true) { %>
+        <h3><%=saturdayLineup[i].artist%></h3>
+       <img src="<%=saturdayLineup[i].img%>" height="200px">
        <input
          type="hidden"
-         name="<%=saturdaylineup[i].id%>"
+         name="<%=saturdayLineup[i].id%>"
          value="0"
          >
          <input
            type="checkbox"
-           name="<%=saturdaylineup[i].id%>"
+           class="selection"
+           name="<%=saturdayLineup[i].id%>"
+           startTime="<%=saturdayLineup[i].trueStartTime%>"
+           endTime=="<%=saturdayLineup[i].trueEndTime%>"
            value="1"
-           <% if (saturdaylineup[i].checked) { %>
+           <% if (saturdayLineup[i].checked) { %>
              checked
            <% } %>
            />
@@ -63,7 +69,7 @@
            type="checkbox"
            name="half"
            value="on"
-           <% if (saturdaylineup[i].half) { %>
+           <% if (saturdayLineup[i].half) { %>
              checked
            <% } %>
          /> -->

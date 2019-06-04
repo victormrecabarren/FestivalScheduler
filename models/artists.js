@@ -14,7 +14,8 @@ const artistSchema = new mongoose.Schema({
   albumCover: {type: String},
   bio: {type: String},
   checked: {type: Boolean, default: false},
-  half: Boolean,
+  opening: {type: Boolean, default: false},
+  finale: {type: Boolean, default: false},
   comments: String,
   rating: {type: Number, min: 0, max: 5},
   favorite: String

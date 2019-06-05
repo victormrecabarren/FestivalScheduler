@@ -1,7 +1,7 @@
 // set up express server
 const express = require('express');
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const methodOverride = require('method-override');
 const saturdayLineupController = require('./controllers/saturdaylineup')
 const saturdayItineraryController = require('./controllers/saturdayitinerary')
@@ -10,7 +10,8 @@ const saturdayItineraryController = require('./controllers/saturdayitinerary')
 
 // set up mongoose
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/campfloggnaw', {useNewUrlParser: true});
+const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost:27017/campfloggnaw`;
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 mongoose.connection.once('open', () => {
   console.log('connected to mongoDB');
 });
@@ -33,6 +34,6 @@ app.use('/CampFlogGnaw/Saturday/MyItinerary', saturdayItineraryController);
 
 
 // listener
-app.listen(port, () => {
-  console.log('now listening on port', port);
+app.listen(PORT, () => {
+  console.log('now listening on port', PORT);
 })

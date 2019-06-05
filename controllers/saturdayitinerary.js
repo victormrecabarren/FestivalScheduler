@@ -7,28 +7,59 @@ const SaturdayLineup = require('../models/artists');
 
 // functions
 const addItineraryItem = (info) => {
-  checkedArray = [];
-  uncheckedArray = [];
+  selectedArray = [];
+  unselectedArray = [];
+  openingArray = [];
+  notOpeningArray = [];
+  finaleArray = [];
+  notFinaleArray = [];
+
+// sort into correct arrays
   for (keys in info) {
-    if (info[keys] == 0) {
-      info[keys] = false;
-      uncheckedArray.push(keys)
-    }
-    else {
-      info[keys] = true;
-    checkedArray.push(keys);
-    }
+    if (info[keys].includes('selected')){
+      selectedArray.push(keys)
+    } else unselectedArray.push([keys]);
+    if (info[keys].includes('opening')) {
+      openingArray.push(keys)
+    } else notOpeningArray.push(keys);
+    if (info[keys].includes('finale')) {
+      finaleArray.push(keys)
+    } else notFinaleArray.push(keys);
   }
 
-  SaturdayLineup.updateMany({_id: {$in: uncheckedArray}}, {$set: {checked: false}}, {multi: true}, (err, unchecked) => {
-    if (err) console.log(err);
+  console.log('selected:', selectedArray);
+  console.log('unselect:', unselectedArray);
+  console.log('op:', openingArray);
+  console.log('not op:', notOpeningArray);
+  console.log('fin:', finaleArray);
+  console.log('not fin:', notFinaleArray);
+
+  SaturdayLineup.updateMany({_id: {$in: selectedArray}}, {$set: {checked: true}}, {multi: true}, () => {
+    SaturdayLineup.updateMany({_id: {$in: unselectedArray}}, {$set: {checked: false}}, {multi: true}, () => {
+      SaturdayLineup.updateMany({_id: {$in: openingArray}}, {$set: {opening: true}}, {multi: true}, () => {
+        SaturdayLineup.updateMany({_id: {$in: notOpeningArray}}, {$set: {opening: false}}, {multi: true}, () => {
+          SaturdayLineup.updateMany({_id: {$in: finaleArray}}, {$set: {finale: true}}, {multi: true}, () => {
+            SaturdayLineup.updateMany({_id: {$in: notFinaleArray}}, {$set: {finale: false}}, {multi: true}, (err, checked) => {
+              if (err) console.log(err)
+              else console.log('n f', checked);
+            });
+          });
+        });
+      });
+    });
   });
 
-  SaturdayLineup.updateMany({_id: {$in: checkedArray}}, {$set: {checked: true}}, {multi: true}, (err, checked) => {
-    if (err) console.log(err)
-    else console.log(checked);
-  });
+
+
+
+
+
+
+
+
+
 }
+
 
 
 
@@ -41,6 +72,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  console.log(req.body);
     addItineraryItem(req.body)
     res.send(req.body)
 })

@@ -8,13 +8,15 @@
       <form action="/CampFlogGnaw/Saturday/MyItinerary" method="post">
 
         <!-- Camp Stage -->
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
             <div class="col-sm">
         <%for (let i=0; i < saturdayLineup.length; i++) {%>
        <% if (saturdayLineup[i].camp === true) { %>
         <h3><%=saturdayLineup[i].artist%></h3>
         <img src="<%=saturdayLineup[i].img%>" height="200px">
+
+        <!-- set up for selection input -->
         <input
           type="hidden"
           name="<%=saturdayLineup[i].id%>"
@@ -26,19 +28,49 @@
             name="<%=saturdayLineup[i].id%>"
             startTime="<%=saturdayLineup[i].trueStartTime%>"
             endTime="<%=saturdayLineup[i].trueEndTime%>"
-            value="1"
+            value="selected"
             <% if (saturdayLineup[i].checked) { %>
               checked
             <% } %>
             />
-          <!-- <input
-            type="checkbox"
-            name="half"
-            value="on"
-            <% if (saturdayLineup[i].half) { %>
-              checked
-            <% } %>
-          /> -->
+          <!-- set up for opening input -->
+          <input
+            type="hidden"
+            name="<%=saturdayLineup[i].id%>"
+            value="0"
+            >
+            <input
+              type="checkbox"
+              class="opening"
+              name="<%=saturdayLineup[i].id%>"
+              startTime="<%=saturdayLineup[i].trueStartTime%>"
+              endTime="<%=saturdayLineup[i].trueEndTime%>"
+              value="opening"
+              <% if (saturdayLineup[i].opening) { %>
+                checked
+              <% } %>
+              />
+
+
+          <!-- set up for finale input -->
+          <input
+            type="hidden"
+            name="<%=saturdayLineup[i].id%>"
+            value="0"
+            >
+            <input
+              type="checkbox"
+              class="finale"
+              name="<%=saturdayLineup[i].id%>"
+              startTime="<%=saturdayLineup[i].trueStartTime%>"
+              endTime="<%=saturdayLineup[i].trueEndTime%>"
+              value="finale"
+              <% if (saturdayLineup[i].finale) { %>
+                checked
+              <% } %>
+              />
+
+
       <%  }%>
       <% } %>
       </div>
@@ -60,19 +92,48 @@
            name="<%=saturdayLineup[i].id%>"
            startTime="<%=saturdayLineup[i].trueStartTime%>"
            endTime="<%=saturdayLineup[i].trueEndTime%>"
-           value="1"
+           value="selected"
            <% if (saturdayLineup[i].checked) { %>
              checked
            <% } %>
            />
-         <!-- <input
-           type="checkbox"
-           name="half"
-           value="on"
-           <% if (saturdayLineup[i].half) { %>
-             checked
-           <% } %>
-         /> -->
+           <!-- set up for opening input -->
+           <input
+             type="hidden"
+             name="<%=saturdayLineup[i].id%>"
+             value="0"
+             >
+             <input
+               type="checkbox"
+               class="opening"
+               name="<%=saturdayLineup[i].id%>"
+               startTime="<%=saturdayLineup[i].trueStartTime%>"
+               endTime="<%=saturdayLineup[i].trueEndTime%>"
+               value="opening"
+               <% if (saturdayLineup[i].opening) { %>
+                 checked
+               <% } %>
+               />
+
+
+           <!-- set up for finale input -->
+           <input
+             type="hidden"
+             name="<%=saturdayLineup[i].id%>"
+             value="0"
+             >
+             <input
+               type="checkbox"
+               class="finale"
+               name="<%=saturdayLineup[i].id%>"
+               startTime="<%=saturdayLineup[i].trueStartTime%>"
+               endTime="<%=saturdayLineup[i].trueEndTime%>"
+               value="finale"
+               <% if (saturdayLineup[i].finale) { %>
+                 checked
+               <% } %>
+               />
+
      <%  }%>
     <%}%>
         </div>

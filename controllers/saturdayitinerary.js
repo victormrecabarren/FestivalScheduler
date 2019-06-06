@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 const SaturdayLineup = require('../models/artists');
 
 
-
-// functions
-const addItineraryItem = (info) => {
+//////////////////////////
+////////////////////////// functions
+const addItineraryItem = (info, res) => {
   selectedArray = [];
   unselectedArray = [];
   openingArray = [];
@@ -33,8 +33,12 @@ const addItineraryItem = (info) => {
       SaturdayLineup.updateMany({_id: {$in: openingArray}}, {$set: {opening: true}}, {multi: true}, () => {
         SaturdayLineup.updateMany({_id: {$in: notOpeningArray}}, {$set: {opening: false}}, {multi: true}, () => {
           SaturdayLineup.updateMany({_id: {$in: finaleArray}}, {$set: {finale: true}}, {multi: true}, () => {
-            SaturdayLineup.updateMany({_id: {$in: notFinaleArray}}, {$set: {finale: false}}, {multi: true}, (err, checked) => {
-              if (err) console.log(err)
+            SaturdayLineup.updateMany({_id: {$in: notFinaleArray}}, {$set: {finale: false}}, {multi: true}, () => {
+              SaturdayLineup.find({checked: true}, (err, data) => {
+                res.render('itinerary.ejs', {
+                  itinerary: data
+                })
+              })
             });
           });
         });
@@ -42,21 +46,19 @@ const addItineraryItem = (info) => {
     });
   });
 }
+//////////////////////////
+//////////////////////////
 
 
 
 
 router.get('/', (req, res) => {
-  SaturdayLineup.find({checked: true}, (err, data) => {
-    res.render('itinerary.ejs', {
-      itinerary: data
-    })
-  })
+  addItineraryItem(req.body, res)
+
 });
 
-router.post('/', (req, res) => {
-    addItineraryItem(req.body)
-    res.redirect('http://localhost:3000/CampFlogGnaw/Saturday/MyItinerary')
+router.put('/', (req, res) => {
+  addItineraryItem(req.body, res)
 })
 
 

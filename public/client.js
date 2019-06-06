@@ -7,8 +7,8 @@ const addListeners = (selection) => {
   }
 }
 
-const updatePageInputs = (target, num) => {
-  $(target).prop('checked', num);
+const updatePageInputs = (target) => {
+  $(target).prop('checked', true);
 
   const $selected = $(':checked').filter('[class="selection"]');
   // console.log($selected);
@@ -50,14 +50,60 @@ const updatePageInputs = (target, num) => {
     }
   }
 
+  // const revertChanges = (target) => {
+  //   $(target).prop('checked', false);
+  //
+  //   const $selected = $(':checked').filter('[class="selection"]');
+  //   // console.log($selected);
+  //
+  //   for (let i=0; i < $selected.length; i++) {
+  //     let selectedStart = new Date($selected.eq(i).attr('starttime'));
+  //     let selectedEnd = new Date($selected.eq(i).attr('endtime'));
+  //
+  //       for (let j=0; j < $('.selection').length; j++) {
+  //         // set time of compare items to js date objects
+  //         let compareStart = new Date($('.selection').eq(j).attr('starttime'));
+  //         let compareEnd = new Date($('.selection').eq(j).attr('endtime'));
+  //
+  //         if (compareEnd > selectedStart && compareEnd < selectedEnd) {
+  //           // disable conflicting
+  //           $('.selection').eq(j).removeAttr('disabled')
+  //
+  //           // check if time to see opening of conflicting
+  //           if ((selectedStart - compareStart)/1000/60 >= 10) {
+  //             //make opening box checkable
+  //             $('.opening').eq(j).prop('checked', false);
+  //             $('.opening').eq(j).parent().addClass('hide')
+  //           }
+  //
+  //           // check other type of configuration of conflicting
+  //         } else if (compareStart < selectedEnd && compareStart > selectedStart) {
+  //
+  //           //disable conflicting
+  //           $('.selection').eq(j).removeAttr('disabled')
+  //
+  //           // check if time to see finale of conflicting
+  //           if ((compareEnd - selectedEnd)/1000/60 >=10) {
+  //             //make finale box checkable
+  //             $('.finale').eq(j).prop('checked', false);
+  //             $('.finale').eq(j).parent().addClass('hide')
+  //
+  //           }
+  //
+  //         }
+  //       }
+  //     }
+  //   }
+
+
 
 /// function to check if checked or unchecked, then redirect to correct function
 const isChecked = (selected) => {
   if (!$(selected).prop('checked') == true) {
-    updatePageInputs(selected, true);
+    updatePageInputs(selected);
     $(selected).prop('checked', false);
   } else {
-    updatePageInputs(selected, false);
+    revertChanges(selected, false);
     $(selected).prop('checked', true);
   };
 

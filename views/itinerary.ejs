@@ -8,6 +8,7 @@
     <div class="container-fluid">
 
       <% for (let i=0; i<itinerary.length; i++) { %>
+        <%if (itinerary[i].checked) {%>
         <div class="card mb-3" style="max-width: 800px">
           <div class="row no-gutters">
             <div class="col-md-4">
@@ -19,7 +20,7 @@
               <%}%>
               </div>
               <div>
-              <a href="http://localhost:3000/CampFlogGnaw/<%=itinerary[i].id%>"><img src="<%=itinerary[i].img%>" alt="<%=itinerary[i].name%>" class="card-img"></a>
+              <a href="http://localhost:3000/CampFlogGnaw/<%=itinerary[i].id%>"><img src="<%=itinerary[i].img%>" alt="<%=itinerary[i].artist%>" class="card-img"></a>
               </div>
             </div>
             <div class="col-md-8">
@@ -33,7 +34,76 @@
             </div>
           </div>
         </div>
-      <% } %>
+
+
+
+
+    <%  } else if (itinerary[i].opening) { %>
+      <div class="card mb-3" style="max-width: 800px">
+        <div class="row no-gutters partial">
+          <div class="col-md-4">
+            <div class="stageTitle">
+          <%  if (itinerary[i].camp) {%>
+              <img src="/static/images/camp.png" class="card-img">
+            <% } else { %>
+              <img src="/static/images/flog.png" class="card-img">
+            <%}%>
+            </div>
+            <div>
+            <a href="http://localhost:3000/CampFlogGnaw/<%=itinerary[i].id%>"><img src="<%=itinerary[i].img%>" alt="<%=itinerary[i].artist%>" class="card-img"></a>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%=itinerary[i].artist%> (Opening)</h5>
+              <p class="card-text"><%=itinerary[i].comments%></p>
+              <p class="card-text"><small class="text-muted">
+                That performance was: <%=itinerary[i].rating%>
+              </small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%} else if (itinerary[i].finale) { %>
+        <div class="card mb-3" style="max-width: 800px">
+          <div class="row no-gutters partial">
+            <div class="col-md-4">
+              <div class="stageTitle">
+            <%  if (itinerary[i].camp) {%>
+                <img src="/static/images/camp.png" class="card-img">
+              <% } else { %>
+                <img src="/static/images/flog.png" class="card-img">
+              <%}%>
+              </div>
+              <div>
+              <a href="http://localhost:3000/CampFlogGnaw/<%=itinerary[i].id%>"><img src="<%=itinerary[i].img%>" alt="<%=itinerary[i].artist%>" class="card-img"></a>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%=itinerary[i].artist%> (Finale)</h5>
+                <p class="card-text"><%=itinerary[i].comments%></p>
+                <p class="card-text"><small class="text-muted">
+                  That performance was: <%=itinerary[i].rating%>
+                </small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%}%>
+
+        <%# set up alert if switching stages %>
+        <%if (i < itinerary.length-1) { %>
+          <%if (itinerary[i].camp != itinerary[i+1].camp) {%>
+        <span class="badge badge-danger">You need to run to the other stage!</span>
+          <%  } else {%>
+        <span class="badge badge-success">Your next show is at this stage, feel free to wait here.</span>
+        <%  }%>
+      <%  }%>
+
+
+    <% } %>
 
 
     <a href="http://localhost:3000/CampFlogGnaw/Saturday/Lineup">Home</a>

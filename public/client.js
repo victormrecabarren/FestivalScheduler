@@ -7,66 +7,103 @@ const addListeners = (selection) => {
   }
 }
 
+const updatePageInputs = (target, num) => {
+  $(target).prop('checked', num);
 
-/// function to check if checked or unchecked, then redirect to correct function
-const isChecked = (selected) => {
-  if (!$(selected).prop('checked') == true) {
-    hideConflicting(selected)
-  } else {
-    showConflicting(selected)
-  };
-};
+  const $selected = $(':checked').filter('[class="selection"]');
+  // console.log($selected);
 
-// function to hide act whose schedule conflicts with selection made
-const hideConflicting = (selected) => {
-  /// create Date Objects based on attribute passed to input
-  selectedStart = new Date($(selected).attr('starttime'))
-  selectedEnd = new Date($(selected).attr('endtime'));
+  for (let i=0; i < $selected.length; i++) {
+    let selectedStart = new Date($selected.eq(i).attr('starttime'));
+    let selectedEnd = new Date($selected.eq(i).attr('endtime'));
 
-// iterate through all other acts to compare their times to selected times
-  for (let i=0; i < $('.selection').length; i++) {
-    // set time of compare items to js date objects
-    let compareStart = new Date($('.selection').eq(i).attr('starttime'));
-    let compareEnd = new Date($('.selection').eq(i).attr('endtime'));
+      for (let j=0; j < $('.selection').length; j++) {
+        // set time of compare items to js date objects
+        let compareStart = new Date($('.selection').eq(j).attr('starttime'));
+        let compareEnd = new Date($('.selection').eq(j).attr('endtime'));
 
-    // check one type of configuration of conflicting schedule
-    if (compareEnd > selectedStart && compareEnd < selectedEnd) {
-      // disable conflicting
-      $('.selection').eq(i).attr('disabled', 'disabled')
+        if (compareEnd > selectedStart && compareEnd < selectedEnd) {
+          // disable conflicting
+          $('.selection').eq(j).attr('disabled', 'disabled')
 
-      // check if time to see opening of conflicting
-      if ((selectedStart - compareStart)/1000/60 >= 10) {
-        //make opening box checkable
-        $('.opening').eq(i).removeClass('hide')
-      }
+          // check if time to see opening of conflicting
+          if ((selectedStart - compareStart)/1000/60 >= 10) {
+            //make opening box checkable
+            $('.opening').eq(j).parent().removeClass('hide')
+          }
 
-      // check other type of configuration of conflicting
-    } else if (compareStart < selectedEnd && compareStart > selectedStart) {
+          // check other type of configuration of conflicting
+        } else if (compareStart < selectedEnd && compareStart > selectedStart) {
 
-      //disable conflicting
-      $('.selection').eq(i).attr('disabled', 'disabled')
+          //disable conflicting
+          $('.selection').eq(j).attr('disabled', 'disabled')
 
-      // check if time to see finale of conflicting
-      if ((compareEnd - selectedEnd)/1000/60 >=10) {
-        //make finale box checkable
-        $('.finale').eq(i).removeClass('hide')
+          // check if time to see finale of conflicting
+          if ((compareEnd - selectedEnd)/1000/60 >=10) {
+            //make finale box checkable
+            $('.finale').eq(j).parent().removeClass('hide')
 
+          }
+
+        }
       }
     }
   }
 
 
+/// function to check if checked or unchecked, then redirect to correct function
+const isChecked = (selected) => {
+  if (!$(selected).prop('checked') == true) {
+    updatePageInputs(selected, true);
+    $(selected).prop('checked', false);
+  } else {
+    updatePageInputs(selected, false);
+    $(selected).prop('checked', true);
+  };
 
+};
 
+// function to hide act whose schedule conflicts with selection made
+// const hideConflicting = (selected) => {
+//   /// create Date Objects based on attribute passed to input
+//   let selectedStart = new Date($(selected).attr('starttime'))
+//   let selectedEnd = new Date($(selected).attr('endtime'));
+//
+// // iterate through all other acts to compare their times to selected times
+//   for (let i=0; i < $('.selection').length; i++) {
+//     // set time of compare items to js date objects
+//     let compareStart = new Date($('.selection').eq(i).attr('starttime'));
+//     let compareEnd = new Date($('.selection').eq(i).attr('endtime'));
+//
+//     // check one type of configuration of conflicting schedule
+//     if (compareEnd > selectedStart && compareEnd < selectedEnd) {
+//       // disable conflicting
+//       $('.selection').eq(i).attr('disabled', 'disabled')
+//
+//       // check if time to see opening of conflicting
+//       if ((selectedStart - compareStart)/1000/60 >= 10) {
+//         //make opening box checkable
+//         $('.opening').eq(i).parent().removeClass('hide')
+//       }
+//
+//       // check other type of configuration of conflicting
+//     } else if (compareStart < selectedEnd && compareStart > selectedStart) {
+//
+//       //disable conflicting
+//       $('.selection').eq(i).attr('disabled', 'disabled')
+//
+//       // check if time to see finale of conflicting
+//       if ((compareEnd - selectedEnd)/1000/60 >=10) {
+//         //make finale box checkable
+//         $('.finale').eq(i).parent().removeClass('hide')
+//
+//       }
+//     }
+//   }
+//
 
-  // temp work space variables
-  mystart = selectedStart
-  myend = selectedEnd
-}
+// }
 
-// temp work space
-let mystart;
-let myend;
 
 //////
 
@@ -80,5 +117,6 @@ const showConflicting = (unselected) => {
 $(() => {
   const $selection = $('.selection');
   addListeners($selection)
+  updatePageInputs();
 
 })

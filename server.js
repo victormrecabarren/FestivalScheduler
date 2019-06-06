@@ -27,6 +27,10 @@ app.use(methodOverride('_method'));
 
 
 // use lineup routes
+
+app.get('/', (res, req) => {
+  res.send('hey')
+})
 app.use('/CampFlogGnaw/Saturday/Lineup', saturdayLineupController);
 app.use('/CampFlogGnaw/Saturday/MyItinerary', saturdayItineraryController);
 

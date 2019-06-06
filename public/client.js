@@ -36,7 +36,8 @@ const hideConflicting = (selected) => {
 
       // check if time to see opening of conflicting
       if ((selectedStart - compareStart)/1000/60 >= 10) {
-        console.log('catch opening of', $('.selection').eq(i), '?');
+        //make opening box checkable
+        $('.opening').eq(i).removeClass('hide')
       }
 
       // check other type of configuration of conflicting
@@ -47,7 +48,9 @@ const hideConflicting = (selected) => {
 
       // check if time to see finale of conflicting
       if ((compareEnd - selectedEnd)/1000/60 >=10) {
-        console.log('catch finale of', $('.selection').eq(i), '?');
+        //make finale box checkable
+        $('.finale').eq(i).removeClass('hide')
+
       }
     }
   }

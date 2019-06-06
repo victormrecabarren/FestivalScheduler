@@ -34,7 +34,7 @@ const addItineraryItem = (info, res) => {
         SaturdayLineup.updateMany({_id: {$in: notOpeningArray}}, {$set: {opening: false}}, {multi: true}, () => {
           SaturdayLineup.updateMany({_id: {$in: finaleArray}}, {$set: {finale: true}}, {multi: true}, () => {
             SaturdayLineup.updateMany({_id: {$in: notFinaleArray}}, {$set: {finale: false}}, {multi: true}, () => {
-              SaturdayLineup.find({checked: true}, (err, data) => {
+              SaturdayLineup.find({$or: [{checked: true}, {opening: true}, {finale: true}]}).sort({trueStartTime: 'ascending'}).exec((err, data) => {
                 res.render('itinerary.ejs', {
                   itinerary: data
                 })
@@ -50,13 +50,13 @@ const addItineraryItem = (info, res) => {
 //////////////////////////
 
 
-
-
+//// SAT INDEX
 router.get('/', (req, res) => {
   addItineraryItem(req.body, res)
-
 });
 
+
+///// SAT UPDATE route
 router.put('/', (req, res) => {
   addItineraryItem(req.body, res)
 })

@@ -5,14 +5,28 @@
     <title></title>
   </head>
   <body>
+    <div class="container-fluid">
 
-    <h1>
-      <% for (let i=0; i < itinerary.length; i++) { %>
-        <%=itinerary[i].artist%>
-      <%}%>
-    </h1>
+      <% for (let i=0; i<itinerary.length; i++) { %>
+        <div class="card mb-3" style="max-width: 540px">
+          <div class="row no-gutters">
+            <div class="col-md-4"><a href="http://localhost:3000/CampFlogGnaw/<%=itinerary[i].id%>"><img src="<%=itinerary[i].img%>" alt="<%=itinerary[i].name%>" class="card-img"></a>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%=itinerary[i].artist%></h5>
+                <p class="card-text"><%=itinerary[i].comments%></p>
+                <p class="card-text"><small class="text-muted">
+                  That performance was: <%=itinerary[i].rating%>
+                </small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% } %>
+
 
     <a href="http://localhost:3000/CampFlogGnaw/Saturday/Lineup">Home</a>
-
+    </div>
   </body>
 </html>

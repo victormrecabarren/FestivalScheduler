@@ -30,7 +30,7 @@ app.use(methodOverride('_method'));
 // use lineup routes
 
 app.get('/', (res, req) => {
-  res.redirect('http://lolcalhost:3000/CampFlogGnaw/Saturday/Lineup')
+  res.redirect('http://localhost:3000/CampFlogGnaw/Saturday/Lineup')
 })
 app.use('/CampFlogGnaw/Saturday/Lineup', saturdayLineupController);
 app.use('/CampFlogGnaw/Saturday/MyItinerary', saturdayItineraryController);

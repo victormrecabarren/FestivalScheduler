@@ -1,5 +1,11 @@
 body {
-  background-color: ivory
+  background-color: ivory;
+  font-family: 'Dosis', sans-serif;
+  background: linear-gradient(#1b75bc, #CC6462);
+}
+
+div {
+  color: #2E164F;
 }
 
 .hide {
@@ -17,4 +23,25 @@ body {
 span {
   margin-left: 5%;
   margin-bottom: 3%
+}
+
+.fa {
+  margin:auto;
+  cursor: pointer;
+}
+
+.fa:hover {
+  color: orange;
+}
+
+.starred {
+  color: orange;
+}
+
+.mini {
+  background-color: #f9dede
+}
+
+.faded {
+  color: #E26153
 }

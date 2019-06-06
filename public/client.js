@@ -1,8 +1,49 @@
 
 const addListeners = (selection) => {
   for (let i = 0; i<selection.length; i++) {
-    selection.eq(i).mouseup((event) => {
+    selection.eq(i).mouseenter((event) => {
       isChecked(event.target);
+    })
+  }
+}
+
+const starListeners = ($stars) => {
+  for (let i = 0; i < $stars.length; i++) {
+    $stars.eq(i).mouseenter((event) => {
+      $(event.target).addClass('starred');
+      let myId = +$(event.target).attr('id');
+      for (let i=0; i < $(event.target).siblings().length; i++) {
+        if (+$(event.target).siblings().eq(i).attr('id') < myId) {
+          $(event.target).siblings().eq(i).addClass('starred');
+        };
+      };
+    })
+
+    $stars.eq(i).mouseleave((event) => {
+      $(event.target).removeClass('starred');
+      for (let i=0; i < $(event.target).siblings().length; i++) {
+        $(event.target).siblings(i).removeClass('starred')
+      }
+    });
+
+    $stars.eq(i).click((event) => {
+      $(event.target).off('mouseenter');
+      $(event.target).off('mouseleave');
+      for (let i=0; i<$(event.target).siblings().length; i++) {
+        $(event.target).siblings().eq(i).off('mouseenter');
+        $(event.target).siblings().eq(i).off('mouseleave')
+      }
+        $(event.target).addClass('starred');
+        let myId = +$(event.target).attr('id');
+        for (let i=0; i < $(event.target).siblings().length; i++) {
+          if (+$(event.target).siblings().eq(i).attr('id') < myId) {
+            $(event.target).siblings().eq(i).addClass('starred');
+          } else if (+$(event.target).siblings().eq(i).attr('id') > myId) {
+            $(event.target).siblings().eq(i).removeClass('starred')
+          }
+        };
+
+
     })
   }
 }
@@ -163,6 +204,10 @@ const showConflicting = (unselected) => {
 $(() => {
   const $selection = $('.selection');
   addListeners($selection)
+
+  const $stars = $('.fa');
+  starListeners($stars);
+
   updatePageInputs();
 
 })

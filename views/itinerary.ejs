@@ -25,10 +25,36 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title"><%=itinerary[i].artist%></h5>
+                <h2 class="card-title"><%=itinerary[i].artist%></h2>
+                <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
                 <p class="card-text"><%=itinerary[i].comments%></p>
                 <p class="card-text"><small class="text-muted">
                   That performance was: <%=itinerary[i].rating%>
+                  <span id="1" class="fa fa-star onestar
+                <% if (itinerary[i].rating > 0) {%>
+                    starred
+                  <%}%>
+                  "></span>
+                  <span id="2" class="fa fa-star twostar
+                  <% if (itinerary[i].rating > 1) {%>
+                      starred
+                    <%}%>
+                  "></span>
+                  <span id="3" class="fa fa-star threestar
+                  <% if (itinerary[i].rating > 2) {%>
+                      starred
+                    <%}%>
+                  "></span>
+                  <span id="4" class="fa fa-star fourstar
+                  <% if (itinerary[i].rating > 3) {%>
+                      starred
+                    <%}%>
+                  "></span>
+                  <span id="5" class="fa fa-star fivestar
+                  <% if (itinerary[i].rating > 4) {%>
+                      starred
+                    <%}%>
+                  "></span>
                 </small></p>
               </div>
             </div>
@@ -39,7 +65,7 @@
 
 
     <%  } else if (itinerary[i].opening) { %>
-      <div class="card mb-3" style="max-width: 800px">
+      <div class="card mb-3 mini" style="max-width: 800px">
         <div class="row no-gutters partial">
           <div class="col-md-4">
             <div class="stageTitle">
@@ -55,10 +81,37 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title"><%=itinerary[i].artist%> (Opening)</h5>
+              <h5 class="card-title faded">Opening only!</h5>
+              <h2 class="card-title"><%=itinerary[i].artist%></h2>
+              <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
               <p class="card-text"><%=itinerary[i].comments%></p>
               <p class="card-text"><small class="text-muted">
                 That performance was: <%=itinerary[i].rating%>
+                <span id="1" class="fa fa-star
+              <% if (itinerary[i].rating > 0) {%>
+                  starred
+                <%}%>
+                "></span>
+                <span id="2" class="fa fa-star
+                <% if (itinerary[i].rating > 1) {%>
+                    starred
+                  <%}%>
+                "></span>
+                <span id="3" class="fa fa-star
+                <% if (itinerary[i].rating > 2) {%>
+                    starred
+                  <%}%>
+                "></span>
+                <span id="4" class="fa fa-star
+                <% if (itinerary[i].rating > 3) {%>
+                    starred
+                  <%}%>
+                "></span>
+                <span id="5" class="fa fa-star
+                <% if (itinerary[i].rating > 4) {%>
+                    starred
+                  <%}%>
+                "></span>
               </small></p>
             </div>
           </div>
@@ -66,7 +119,7 @@
       </div>
 
       <%} else if (itinerary[i].finale) { %>
-        <div class="card mb-3" style="max-width: 800px">
+        <div class="card mb-3 mini" style="max-width: 800px">
           <div class="row no-gutters partial">
             <div class="col-md-4">
               <div class="stageTitle">
@@ -82,10 +135,37 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title"><%=itinerary[i].artist%> (Finale)</h5>
+                <h5 class="card-title faded">Finale only!</h5>
+                <h2 class="card-title"><%=itinerary[i].artist%></h2>
+                <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
                 <p class="card-text"><%=itinerary[i].comments%></p>
                 <p class="card-text"><small class="text-muted">
                   That performance was: <%=itinerary[i].rating%>
+                  <span id="1" class="fa fa-star
+                <% if (itinerary[i].rating > 0) {%>
+                    starred
+                  <%}%>
+                  "></span>
+                  <span id="2" class="fa fa-star
+                  <% if (itinerary[i].rating > 1) {%>
+                      starred
+                    <%}%>
+                  "></span>
+                  <span id="3" class="fa fa-star
+                  <% if (itinerary[i].rating > 2) {%>
+                      starred
+                    <%}%>
+                  "></span>
+                  <span id="4" class="fa fa-star
+                  <% if (itinerary[i].rating > 3) {%>
+                      starred
+                    <%}%>
+                  "></span>
+                  <span id="5" class="fa fa-star
+                  <% if (itinerary[i].rating > 4) {%>
+                      starred
+                    <%}%>
+                  "></span>
                 </small></p>
               </div>
             </div>
@@ -96,9 +176,9 @@
         <%# set up alert if switching stages %>
         <%if (i < itinerary.length-1) { %>
           <%if (itinerary[i].camp != itinerary[i+1].camp) {%>
-        <span class="badge badge-danger">You need to run to the other stage!</span>
+        <span class="badge badge-danger">You need to run over to the other stage!</span>
           <%  } else {%>
-        <span class="badge badge-success">Your next show is at this stage, feel free to wait here.</span>
+        <span class="badge badge-success">Your next show is at this stage, feel free to chill here for a bit.</span>
         <%  }%>
       <%  }%>
 

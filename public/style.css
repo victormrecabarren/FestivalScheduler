@@ -45,3 +45,10 @@ span {
 .faded {
   color: #E26153
 }
+
+.partialNotification {
+  margin-top: 5%;
+  font-size: 1.4em;
+  margin-left: 0;
+  background-color: #E26153
+}

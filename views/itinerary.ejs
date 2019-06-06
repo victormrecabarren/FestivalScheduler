@@ -27,7 +27,8 @@
               <div class="card-body">
                 <h2 class="card-title"><%=itinerary[i].artist%></h2>
                 <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
-                <p class="card-text"><%=itinerary[i].comments%></p>
+                <label for="<%=itinerary[i].artist%>">What were the highlights of the act?</label>
+                <textarea name="comments" rows="3" class="form-control card-text" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
                 <p class="card-text"><small class="text-muted">
                   That performance was: <%=itinerary[i].rating%>
                   <span id="1" class="fa fa-star onestar
@@ -78,13 +79,17 @@
             <div>
             <a href="http://localhost:3000/CampFlogGnaw/<%=itinerary[i].id%>"><img src="<%=itinerary[i].img%>" alt="<%=itinerary[i].artist%>" class="card-img"></a>
             </div>
+            <div>
+              <span class="badge badge-dark partialNotification">Partial show</span>
+            </div>
           </div>
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title faded">Opening only!</h5>
               <h2 class="card-title"><%=itinerary[i].artist%></h2>
               <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
-              <p class="card-text"><%=itinerary[i].comments%></p>
+              <label for="<%=itinerary[i].artist%>">What were the highlights of the act?</label>
+              <textarea name="comments" rows="1" class="form-control card-text" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
               <p class="card-text"><small class="text-muted">
                 That performance was: <%=itinerary[i].rating%>
                 <span id="1" class="fa fa-star
@@ -132,13 +137,17 @@
               <div>
               <a href="http://localhost:3000/CampFlogGnaw/<%=itinerary[i].id%>"><img src="<%=itinerary[i].img%>" alt="<%=itinerary[i].artist%>" class="card-img"></a>
               </div>
+              <div>
+                <span class="badge badge-dark partialNotification">Partial show</span>
+              </div>
             </div>
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title faded">Finale only!</h5>
                 <h2 class="card-title"><%=itinerary[i].artist%></h2>
                 <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
-                <p class="card-text"><%=itinerary[i].comments%></p>
+                <label for="<%=itinerary[i].artist%>">What were the highlights of the act?</label>
+                <textarea name="comments" rows="1" class="form-control card-text" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
                 <p class="card-text"><small class="text-muted">
                   That performance was: <%=itinerary[i].rating%>
                   <span id="1" class="fa fa-star

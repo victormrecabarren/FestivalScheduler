@@ -24,7 +24,7 @@ const updatePageInputs = (target) => {
 
         if (compareEnd > selectedStart && compareEnd < selectedEnd) {
           // disable conflicting
-          $('.selection').eq(j).attr('disabled', 'disabled')
+          $('.selection').eq(j).attr('disabled', 'disabled');
 
           // check if time to see opening of conflicting
           if ((selectedStart - compareStart)/1000/60 >= 10) {
@@ -50,50 +50,50 @@ const updatePageInputs = (target) => {
     }
   }
 
-  // const revertChanges = (target) => {
-  //   $(target).prop('checked', false);
-  //
-  //   const $selected = $(':checked').filter('[class="selection"]');
-  //   // console.log($selected);
-  //
-  //   for (let i=0; i < $selected.length; i++) {
-  //     let selectedStart = new Date($selected.eq(i).attr('starttime'));
-  //     let selectedEnd = new Date($selected.eq(i).attr('endtime'));
-  //
-  //       for (let j=0; j < $('.selection').length; j++) {
-  //         // set time of compare items to js date objects
-  //         let compareStart = new Date($('.selection').eq(j).attr('starttime'));
-  //         let compareEnd = new Date($('.selection').eq(j).attr('endtime'));
-  //
-  //         if (compareEnd > selectedStart && compareEnd < selectedEnd) {
-  //           // disable conflicting
-  //           $('.selection').eq(j).removeAttr('disabled')
-  //
-  //           // check if time to see opening of conflicting
-  //           if ((selectedStart - compareStart)/1000/60 >= 10) {
-  //             //make opening box checkable
-  //             $('.opening').eq(j).prop('checked', false);
-  //             $('.opening').eq(j).parent().addClass('hide')
-  //           }
-  //
-  //           // check other type of configuration of conflicting
-  //         } else if (compareStart < selectedEnd && compareStart > selectedStart) {
-  //
-  //           //disable conflicting
-  //           $('.selection').eq(j).removeAttr('disabled')
-  //
-  //           // check if time to see finale of conflicting
-  //           if ((compareEnd - selectedEnd)/1000/60 >=10) {
-  //             //make finale box checkable
-  //             $('.finale').eq(j).prop('checked', false);
-  //             $('.finale').eq(j).parent().addClass('hide')
-  //
-  //           }
-  //
-  //         }
-  //       }
-  //     }
-  //   }
+  const revertChanges = (target) => {
+    console.log('running revertChanges');
+    $(target).prop('checked', false);
+    const $selected = $(target);
+
+    let selectedStart = new Date($selected.attr('starttime'));
+    let selectedEnd = new Date($selected.attr('endtime'));
+
+    for (let i=0; i < $('.selection').length; i++) {
+
+          // set time of compare items to js date objects
+          let compareStart = new Date($('.selection').eq(i).attr('starttime'));
+          let compareEnd = new Date($('.selection').eq(i).attr('endtime'));
+
+          if (compareEnd > selectedStart && compareEnd < selectedEnd) {
+            // disable conflicting
+            console.log('about to un-disable: ', $('.selection').eq(i));
+            $('.selection').eq(i).removeAttr('disabled')
+
+            // check if time to see opening of conflicting
+            if ((selectedStart - compareStart)/1000/60 >= 10) {
+              //make opening box checkable
+              $('.opening').eq(i).prop('checked', false);
+              $('.opening').eq(i).parent().addClass('hide')
+            }
+
+            // check other type of configuration of conflicting
+          } else if (compareStart < selectedEnd && compareStart > selectedStart) {
+
+            //disable conflicting
+            $('.selection').eq(i).removeAttr('disabled')
+
+            // check if time to see finale of conflicting
+            if ((compareEnd - selectedEnd)/1000/60 >=10) {
+              //make finale box checkable
+              $('.finale').eq(i).prop('checked', false);
+              $('.finale').eq(i).parent().addClass('hide')
+
+            }
+
+          }
+        }
+      }
+
 
 
 

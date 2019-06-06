@@ -4,7 +4,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const methodOverride = require('method-override');
 const saturdayLineupController = require('./controllers/saturdaylineup')
-const saturdayItineraryController = require('./controllers/saturdayitinerary')
+const saturdayItineraryController = require('./controllers/saturdayitinerary');
+const env = require('dotenv');
 
 
 

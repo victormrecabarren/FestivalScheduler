@@ -27,12 +27,6 @@ const addItineraryItem = (info) => {
     } else notFinaleArray.push(keys);
   }
 
-  console.log('selected:', selectedArray);
-  console.log('unselect:', unselectedArray);
-  console.log('op:', openingArray);
-  console.log('not op:', notOpeningArray);
-  console.log('fin:', finaleArray);
-  console.log('not fin:', notFinaleArray);
 
   SaturdayLineup.updateMany({_id: {$in: selectedArray}}, {$set: {checked: true}}, {multi: true}, () => {
     SaturdayLineup.updateMany({_id: {$in: unselectedArray}}, {$set: {checked: false}}, {multi: true}, () => {
@@ -41,23 +35,12 @@ const addItineraryItem = (info) => {
           SaturdayLineup.updateMany({_id: {$in: finaleArray}}, {$set: {finale: true}}, {multi: true}, () => {
             SaturdayLineup.updateMany({_id: {$in: notFinaleArray}}, {$set: {finale: false}}, {multi: true}, (err, checked) => {
               if (err) console.log(err)
-              else console.log('n f', checked);
             });
           });
         });
       });
     });
   });
-
-
-
-
-
-
-
-
-
-
 }
 
 
@@ -72,9 +55,8 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
     addItineraryItem(req.body)
-    res.send(req.body)
+    res.redirect('http://localhost:3000/CampFlogGnaw/Saturday/MyItinerary')
 })
 
 

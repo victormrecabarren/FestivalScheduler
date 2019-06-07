@@ -7,6 +7,11 @@ const saturdayLineupController = require('./controllers/saturdaylineup')
 const saturdayItineraryController = require('./controllers/saturdayitinerary');
 const env = require('dotenv');
 
+const SaturdayArtist = require('./models/artists');
+const lineup = require('saturdayartists.js')
+
+
+
 
 
 // set up mongoose
@@ -23,7 +28,6 @@ mongoose.connection.once('open', () => {
 app.use('/static', express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
 app.use(methodOverride('_method'));
 
 
@@ -33,8 +37,18 @@ app.use(methodOverride('_method'));
 app.use('/CampFlogGnaw/Saturday/Lineup', saturdayLineupController);
 app.use('/CampFlogGnaw/Saturday/MyItinerary', saturdayItineraryController);
 
+
+
+
 app.get('/', (req, res) => {
+
   res.redirect('/CampFlogGnaw/Saturday/Lineup')
+})
+
+app.get('/seed', (req, res) => {
+  SaturdayArtist.insertMany(lineup, (err, data) => {
+    console.log(data);
+  })
 })
 
 

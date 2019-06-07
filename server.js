@@ -63,7 +63,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/seed', (req, res) => {
-  SaturdayArtist.insert(hodgy, (err, data) => {
+  SaturdayArtist.create(hodgy, (err, data) => {
     console.log(data);
     res.send('seeded hodgy')
   })

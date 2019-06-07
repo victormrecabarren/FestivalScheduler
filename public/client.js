@@ -27,13 +27,18 @@ const starListeners = ($stars) => {
     });
 
     $stars.eq(i).click((event) => {
+
       $(event.target).off('mouseenter');
       $(event.target).off('mouseleave');
       for (let i=0; i<$(event.target).siblings().length; i++) {
         $(event.target).siblings().eq(i).off('mouseenter');
         $(event.target).siblings().eq(i).off('mouseleave')
       }
-        $(event.target).addClass('starred');
+
+
+
+
+
         let myId = +$(event.target).attr('id');
         for (let i=0; i < $(event.target).siblings().length; i++) {
           if (+$(event.target).siblings().eq(i).attr('id') < myId) {
@@ -43,6 +48,13 @@ const starListeners = ($stars) => {
           }
         };
 
+        $(event.target).addClass('starred');
+        /// save stars selected to input
+        let starsGiven = $(event.target).parent().children().filter('.starred').length
+
+        let $myArtist = $(event.target).parent().attr('id');
+        let $myStarInput = $(`input[artist='${$myArtist}']`);
+        $myStarInput.attr('value', starsGiven);
 
     })
   }

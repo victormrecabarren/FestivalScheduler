@@ -27,10 +27,29 @@
               <div class="card-body">
                 <h2 class="card-title"><%=itinerary[i].artist%></h2>
                 <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
-                <label for="<%=itinerary[i].artist%>">What were the highlights of the act?</label>
-                <textarea name="comments" rows="3" class="form-control card-text" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
-                <p class="card-text"><small class="text-muted">
-                  That performance was: <%=itinerary[i].rating%>
+                  <label for="<%=itinerary[i].artist%>">What were the highlights of the act?</label>
+                  <form class="" action="/CampFlogGnaw/Saturday/MyItinerary/<%=itinerary[i].id%>/edit?_method=PUT" method="post">
+                    <div class="input-group">
+                      <textarea
+                      name="comments"
+                      rows="3"
+                      class="form-control card-text"
+                      value="0"
+                      id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
+                      <input artist="<%=itinerary[i].id%>" type="hidden" name="rating" value="0">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">
+                          <% if (itinerary[i].comments.length) { %>
+                          Edit
+                       <% } else {%>
+                           Submit
+                       <%}%>
+                        </button>
+                      </div>
+                    </div>
+
+                <p class="card-text"><small class="text-muted" id="<%=itinerary[i].id%>">
+                  That performance was:
                   <span id="1" class="fa fa-star onestar
                 <% if (itinerary[i].rating > 0) {%>
                     starred
@@ -57,6 +76,7 @@
                     <%}%>
                   "></span>
                 </small></p>
+                </form>
               </div>
             </div>
           </div>
@@ -89,9 +109,23 @@
               <h2 class="card-title"><%=itinerary[i].artist%></h2>
               <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
               <label for="<%=itinerary[i].artist%>">What were the highlights of the act?</label>
-              <textarea name="comments" rows="1" class="form-control card-text" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
-              <p class="card-text"><small class="text-muted">
-                That performance was: <%=itinerary[i].rating%>
+              <form class="" action="/CampFlogGnaw/Saturday/MyItinerary/<%=itinerary[i].id%>/edit?_method=PUT" method="post">
+                <div class="input-group">
+                  <textarea name="comments" rows="1" class="form-control card-text" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
+                  <input artist="<%=itinerary[i].id%>" type="hidden" name="rating" value="0">
+                  <div class="input-group-append">
+                     <button class="btn btn-outline-secondary" type="submit">
+                       <% if (itinerary[i].comments.length) { %>
+                       Edit
+                    <% } else {%>
+                        Submit
+                    <%}%>
+                      </button>
+                   </div>
+                </div>
+              </form>
+              <p class="card-text"><small class="text-muted" id="<%=itinerary[i].artist%>">
+                That performance was:
                 <span id="1" class="fa fa-star
               <% if (itinerary[i].rating > 0) {%>
                   starred
@@ -146,10 +180,24 @@
                 <h5 class="card-title faded">Finale only!</h5>
                 <h2 class="card-title"><%=itinerary[i].artist%></h2>
                 <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
-                <label for="<%=itinerary[i].artist%>">What were the highlights of the act?</label>
-                <textarea name="comments" rows="1" class="form-control card-text" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
-                <p class="card-text"><small class="text-muted">
-                  That performance was: <%=itinerary[i].rating%>
+                  <label for="<%=itinerary[i].artist%>">What were the highlights of the act?</label>
+                  <form class="" action="/CampFlogGnaw/Saturday/MyItinerary/<%=itinerary[i].id%>/edit?_method=PUT" method="post">
+                    <div class="input-group">
+                      <textarea name="comments" rows="1" class="form-control card-text" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
+                      <input artist="<%=itinerary[i].id%>" type="hidden" name="rating" value="0">
+                      <div class="input-group-append">
+                         <button class="btn btn-outline-secondary" type="submit">
+                           <% if (itinerary[i].comments.length) { %>
+                           Edit
+                        <% } else {%>
+                            Submit
+                        <%}%>
+                         </button>
+                       </div>
+                    </div>
+                  </form>
+                <p class="card-text"><small class="text-muted" id="<%=itinerary[i].id%>">
+                  That performance was:
                   <span id="1" class="fa fa-star
                 <% if (itinerary[i].rating > 0) {%>
                     starred

@@ -50,5 +50,11 @@ span {
   margin-top: 5%;
   font-size: 1.4em;
   margin-left: 0;
-  background-color: #E26153
+  background-color: #E26153;
+  width: 100%;
+}
+
+.btn-outline-secondary {
+  color: white;
+  background-color: #2E164F
 }

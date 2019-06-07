@@ -16,8 +16,8 @@ const artistSchema = new mongoose.Schema({
   checked: {type: Boolean, default: false},
   opening: {type: Boolean, default: false},
   finale: {type: Boolean, default: false},
-  comments: String,
-  rating: {type: Number, min: 0, max: 5},
+  comments: {type: String, default: ""},
+  rating: {type: Number, min: 0, max: 5, default: 0},
   favorite: String
 });
 

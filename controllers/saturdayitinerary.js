@@ -61,6 +61,14 @@ router.put('/', (req, res) => {
   addItineraryItem(req.body, res)
 })
 
+//// SAT UPDATE personal itinerary route
+
+router.put('/:id/edit', (req, res) => {
+  SaturdayLineup.updateOne({_id: req.params.id}, {$set:req.body}, {$upsert: true}, (err, data) => {
+  })
+  res.redirect('/CampFlogGnaw/Saturday/MyItinerary')
+})
+
 
 
 module.exports = router

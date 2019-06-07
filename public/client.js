@@ -1,7 +1,7 @@
 
 const addListeners = (selection) => {
   for (let i = 0; i<selection.length; i++) {
-    selection.eq(i).mouseenter((event) => {
+    selection.eq(i).click((event) => {
       isChecked(event.target);
     })
   }
@@ -35,10 +35,6 @@ const starListeners = ($stars) => {
         $(event.target).siblings().eq(i).off('mouseleave')
       }
 
-
-
-
-
         let myId = +$(event.target).attr('id');
         for (let i=0; i < $(event.target).siblings().length; i++) {
           if (+$(event.target).siblings().eq(i).attr('id') < myId) {
@@ -55,6 +51,10 @@ const starListeners = ($stars) => {
         let $myArtist = $(event.target).parent().attr('id');
         let $myStarInput = $(`input[artist='${$myArtist}']`);
         $myStarInput.attr('value', starsGiven);
+        console.log($(`input[artist='${$myArtist}']`));
+        console.log(starsGiven);
+        console.log($myArtist);
+        console.log($myStarInput);
 
     })
   }
@@ -152,12 +152,12 @@ const updatePageInputs = (target) => {
 
 /// function to check if checked or unchecked, then redirect to correct function
 const isChecked = (selected) => {
-  if (!$(selected).prop('checked') == true) {
+  if ($(selected).prop('checked') == true) {
     updatePageInputs(selected);
-    $(selected).prop('checked', false);
+    $(selected).prop('checked', true);
   } else {
     revertChanges(selected, false);
-    $(selected).prop('checked', true);
+    $(selected).prop('checked', false);
   };
 
 };
@@ -218,7 +218,7 @@ $(() => {
   addListeners($selection)
 
   const $stars = $('.fa');
-  starListeners($stars);
+  starListeners($stars)
 
   updatePageInputs();
 

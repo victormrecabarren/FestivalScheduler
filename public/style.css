@@ -8,6 +8,10 @@ div {
   color: #2E164F;
 }
 
+input {
+  cursor: pointer;
+}
+
 .hide {
   display: none;
 }

@@ -34,7 +34,7 @@ app.use('/CampFlogGnaw/Saturday/Lineup', saturdayLineupController);
 app.use('/CampFlogGnaw/Saturday/MyItinerary', saturdayItineraryController);
 
 app.get('/', (req, res) => {
-  res.redirect('http://localhost:3000/CampFlogGnaw/Saturday/Lineup')
+  res.redirect('/CampFlogGnaw/Saturday/Lineup')
 })
 
 

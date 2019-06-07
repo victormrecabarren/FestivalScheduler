@@ -38,7 +38,7 @@ header {
   width: 40%;
   position: absolute;
   right: 30%;
-  top: 3%;
+  top: 1%;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -81,7 +81,7 @@ header {
 
 
 @keyframes cloudsmove {
-  from {left: -100px}
+  from {left: -80%}
   to {left: 100%;}
 }
 

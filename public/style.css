@@ -16,6 +16,17 @@ input {
 header {
   background: linear-gradient(#1b75bc, #E26154);
   height: 500px;
+  position: relative;
+}
+
+nav {
+  height: 100px;
+  width: 100%;
+  /* background-color: white; */
+  /* border: 1px red solid; */
+  position: absolute;
+  bottom: 0;
+
 }
 
 .moon {

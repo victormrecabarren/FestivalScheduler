@@ -27,7 +27,7 @@
               <div class="card-body">
                 <h2 class="card-title"><%=itinerary[i].artist%></h2>
                 <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
-                  <label for="<%=itinerary[i].artist%>">What were the highlights of the act?</label>
+                  <label for="<%=itinerary[i].artist%>">What were the highlights of this set?</label>
                   <form class="" action="/CampFlogGnaw/Saturday/MyItinerary/<%=itinerary[i].id%>/edit?_method=PUT" method="post">
                     <div class="input-group">
                       <textarea
@@ -35,12 +35,13 @@
                       rows="3"
                       class="form-control card-text"
                       value="0"
+                      placeholder="Put your thoughts here after the show!"
                       id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
                       <input artist="<%=itinerary[i].id%>" type="hidden" name="rating" value="0">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="submit">
                           <% if (itinerary[i].comments.length) { %>
-                          Edit
+                          Edit?
                        <% } else {%>
                            Submit
                        <%}%>
@@ -108,15 +109,19 @@
               <h5 class="card-title faded">Opening only!</h5>
               <h2 class="card-title"><%=itinerary[i].artist%></h2>
               <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
-              <label for="<%=itinerary[i].artist%>">What were the highlights of the act?</label>
+              <label for="<%=itinerary[i].artist%>">What were the highlights of this set?</label>
               <form class="" action="/CampFlogGnaw/Saturday/MyItinerary/<%=itinerary[i].id%>/edit?_method=PUT" method="post">
                 <div class="input-group">
-                  <textarea name="comments" rows="1" class="form-control card-text" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
+                  <textarea
+                  name="comments"
+                  rows="1"
+                  class="form-control card-text"
+                  placeholder="Put your thoughts here after the show!" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
                   <input artist="<%=itinerary[i].id%>" type="hidden" name="rating" value="0">
                   <div class="input-group-append">
                      <button class="btn btn-outline-secondary" type="submit">
                        <% if (itinerary[i].comments.length) { %>
-                       Edit
+                       Edit?
                     <% } else {%>
                         Submit
                     <%}%>
@@ -181,15 +186,19 @@
                 <h5 class="card-title faded">Finale only!</h5>
                 <h2 class="card-title"><%=itinerary[i].artist%></h2>
                 <h6 class="card-subtitle mb-2 text-muted"><%=itinerary[i].startTime%> - <%=itinerary[i].endTime%></h6>
-                  <label for="<%=itinerary[i].artist%>">What were the highlights of the act?</label>
+                  <label for="<%=itinerary[i].artist%>">What were the highlights of this set?</label>
                   <form class="" action="/CampFlogGnaw/Saturday/MyItinerary/<%=itinerary[i].id%>/edit?_method=PUT" method="post">
                     <div class="input-group">
-                      <textarea name="comments" rows="1" class="form-control card-text" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
+                      <textarea
+                      name="comments"
+                      rows="1"
+                      class="form-control card-text"
+                      placeholder="Put your thoughts here after the show!" id="<%=itinerary[i].artist%>"><%=itinerary[i].comments%></textarea>
                       <input artist="<%=itinerary[i].id%>" type="hidden" name="rating" value="0">
                       <div class="input-group-append">
                          <button class="btn btn-outline-secondary" type="submit">
                            <% if (itinerary[i].comments.length) { %>
-                           Edit
+                           Edit?
                         <% } else {%>
                             Submit
                         <%}%>

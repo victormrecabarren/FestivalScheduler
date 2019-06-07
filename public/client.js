@@ -77,7 +77,7 @@ const updatePageInputs = (target) => {
 
         if (compareEnd > selectedStart && compareEnd < selectedEnd) {
           // disable conflicting
-          $('.selection').eq(j).attr('disabled', 'disabled');
+          $('.selection').eq(j).attr('disabled', 'disabled').parent().hide()
 
           // check if time to see opening of conflicting
           if ((selectedStart - compareStart)/1000/60 >= 10) {
@@ -89,7 +89,7 @@ const updatePageInputs = (target) => {
         } else if (compareStart < selectedEnd && compareStart > selectedStart) {
 
           //disable conflicting
-          $('.selection').eq(j).attr('disabled', 'disabled')
+          $('.selection').eq(j).attr('disabled', 'disabled').parent().hide()
 
           // check if time to see finale of conflicting
           if ((compareEnd - selectedEnd)/1000/60 >=10) {
@@ -120,7 +120,7 @@ const updatePageInputs = (target) => {
           if (compareEnd > selectedStart && compareEnd < selectedEnd) {
             // disable conflicting
             console.log('about to un-disable: ', $('.selection').eq(i));
-            $('.selection').eq(i).removeAttr('disabled')
+            $('.selection').eq(i).removeAttr('disabled').parent().show()
 
             // check if time to see opening of conflicting
             if ((selectedStart - compareStart)/1000/60 >= 10) {
@@ -133,7 +133,7 @@ const updatePageInputs = (target) => {
           } else if (compareStart < selectedEnd && compareStart > selectedStart) {
 
             //disable conflicting
-            $('.selection').eq(i).removeAttr('disabled')
+            $('.selection').eq(i).removeAttr('disabled').parent().show()
 
             // check if time to see finale of conflicting
             if ((compareEnd - selectedEnd)/1000/60 >=10) {

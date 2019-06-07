@@ -11,84 +11,118 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm">
+
+
         <%for (let i=0; i < saturdayLineup.length; i++) {%>
        <% if (saturdayLineup[i].camp === true) { %>
-        <h3><%=saturdayLineup[i].artist%></h3>
-        <img src="<%=saturdayLineup[i].img%>" height="200px">
 
-        <!-- set up for selection input -->
-        <input
-          type="hidden"
-          name="<%=saturdayLineup[i].id%>"
-          value="0"
-          >
-          <input
-            type="checkbox"
-            class="selection"
-            name="<%=saturdayLineup[i].id%>"
-            startTime="<%=saturdayLineup[i].trueStartTime%>"
-            endTime="<%=saturdayLineup[i].trueEndTime%>"
-            value="selected"
-            <% if (saturdayLineup[i].checked) { %>
-              checked
-            <% } %>
-            />
-          <!-- set up for opening input -->
-          <input
-            type="hidden"
-            name="<%=saturdayLineup[i].id%>"
-            value="0"
-            >
-            <div class="form-check
-            <%if (saturdayLineup[i].opening === false) {%>
-              hide
-            <%}%>
-            ">
-              <input
-                type="checkbox"
-                class="opening"
-                name="<%=saturdayLineup[i].id%>"
-                startTime="<%=saturdayLineup[i].trueStartTime%>"
-                endTime="<%=saturdayLineup[i].trueEndTime%>"
-                value="opening"
-                id="<%=saturdayLineup[i].id%>"
-                <% if (saturdayLineup[i].opening) { %>
-                  checked
-                <% } %>
-                />
-              <label class="form-check-label"
-               for="<%=saturdayLineup[i].id%>">Opening</label>
-            </div>
+         <div class="card text-left">
+           <div class="card-header">
+             <!-- set up for opening input -->
+             <input
+               type="hidden"
+               name="<%=saturdayLineup[i].id%>"
+               value="0"
+               >
+               <div class="form-check
+               <%if (saturdayLineup[i].opening === false) {%>
+                 hide
+               <%}%>
+               ">
+                 <input
+                   type="checkbox"
+                   class="opening"
+                   name="<%=saturdayLineup[i].id%>"
+                   startTime="<%=saturdayLineup[i].trueStartTime%>"
+                   endTime="<%=saturdayLineup[i].trueEndTime%>"
+                   value="opening"
+                   id="<%=saturdayLineup[i].id%>"
+                   <% if (saturdayLineup[i].opening) { %>
+                     checked
+                   <% } %>
+                   />
+                 <label class="form-check-label"
+                  for="<%=saturdayLineup[i].id%>">Opening</label>
+               </div>
+
+           </div>
+           <div class="card-body">
+             <h1 class="card-title">
+               <%=saturdayLineup[i].artist%>
+             </h1>
+             <p class="card-text"><%=saturdayLineup[i].startTime%> - <%=saturdayLineup[i].endTime%></p>
+             <!-- set up for selection input -->
+             <span class="mainCampSelector">
+               <input
+                 type="hidden"
+                 name="<%=saturdayLineup[i].id%>"
+                 value="0"
+                 >
 
 
+                 <div class="pretty p-icon p-smooth">
+                   <input
+                     type="checkbox"
+                     class="selection"
+                     name="<%=saturdayLineup[i].id%>"
+                     startTime="<%=saturdayLineup[i].trueStartTime%>"
+                     endTime="<%=saturdayLineup[i].trueEndTime%>"
+                     value="selected"
+                     <% if (saturdayLineup[i].checked) { %>
+                       checked
+                     <% } %>
+                     />
+                     <div class="state p-success">
+                         <i class="icon fa fa-check"></i>
+                         <label></label>
+                     </div>
+                 </div>
 
-          <!-- set up for finale input -->
-          <input
-            type="hidden"
-            name="<%=saturdayLineup[i].id%>"
-            value="0"
-            >
 
-            <div class="form-check
-            <%if (saturdayLineup[i].finale === false) {%>
-              hide
-            <%}%>
-            ">
-              <input
-                type="checkbox"
-                class="finale"
-                name="<%=saturdayLineup[i].id%>"
-                startTime="<%=saturdayLineup[i].trueStartTime%>"
-                endTime="<%=saturdayLineup[i].trueEndTime%>"
-                value="finale"
-                id="<%=saturdayLineup[i].id%>"
-                <% if (saturdayLineup[i].finale) { %>
-                  checked
-                <% } %>
-                />
-                <label class="form-check-label"
-                 for="<%=saturdayLineup[i].id%>">Finale</label>
-            </div>
+
+
+               </span>
+             <img src="<%=saturdayLineup[i].img%>" class="img-fluid frontCardImg">
+           </div>
+           <div class="card-footer text-muted">
+             <!-- <h3><%=saturdayLineup[i].artist%></h3> -->
+             <!-- <img src="<%=saturdayLineup[i].img%>" class="rounded"> -->
+
+
+
+
+             <!-- set up for finale input -->
+             <input
+               type="hidden"
+               name="<%=saturdayLineup[i].id%>"
+               value="0"
+               >
+
+               <div class="form-check
+               <%if (saturdayLineup[i].finale === false) {%>
+                 hide
+               <%}%>
+               ">
+                 <input
+                   type="checkbox"
+                   class="finale"
+                   name="<%=saturdayLineup[i].id%>"
+                   startTime="<%=saturdayLineup[i].trueStartTime%>"
+                   endTime="<%=saturdayLineup[i].trueEndTime%>"
+                   value="finale"
+                   id="<%=saturdayLineup[i].id%>"
+                   <% if (saturdayLineup[i].finale) { %>
+                     checked
+                   <% } %>
+                   />
+                   <label class="form-check-label"
+                    for="<%=saturdayLineup[i].id%>">Finale</label>
+               </div>
+
+           </div>
+         </div>
+
+
 
 
 
@@ -101,82 +135,108 @@
       <div class="col-sm">
         <%for (let i=0; i < saturdayLineup.length; i++) {%>
       <% if (saturdayLineup[i].flog === true) { %>
-        <h3><%=saturdayLineup[i].artist%></h3>
-       <img src="<%=saturdayLineup[i].img%>" height="200px">
-       <input
-         type="hidden"
-         name="<%=saturdayLineup[i].id%>"
-         value="0"
-         >
-         <input
-           type="checkbox"
-           class="selection"
-           name="<%=saturdayLineup[i].id%>"
-           startTime="<%=saturdayLineup[i].trueStartTime%>"
-           endTime="<%=saturdayLineup[i].trueEndTime%>"
-           value="selected"
-           <% if (saturdayLineup[i].checked) { %>
-             checked
-           <% } %>
-           />
-           <!-- set up for opening input -->
-           <input
-             type="hidden"
-             name="<%=saturdayLineup[i].id%>"
-             value="0"
-             >
+        <div class="card text-right">
+          <div class="card-header">
+            <!-- set up for opening input -->
+            <input
+              type="hidden"
+              name="<%=saturdayLineup[i].id%>"
+              value="0"
+              >
+              <div class="form-check
+              <%if (saturdayLineup[i].opening === false) {%>
+                hide
+              <%}%>
+              ">
+                <input
+                  type="checkbox"
+                  class="opening"
+                  name="<%=saturdayLineup[i].id%>"
+                  startTime="<%=saturdayLineup[i].trueStartTime%>"
+                  endTime="<%=saturdayLineup[i].trueEndTime%>"
+                  value="opening"
+                  id="<%=saturdayLineup[i].id%>"
+                  <% if (saturdayLineup[i].opening) { %>
+                    checked
+                  <% } %>
+                  />
+                <label class="form-check-label"
+                 for="<%=saturdayLineup[i].id%>">Opening</label>
+              </div>
 
-             <div class="form-check
-             <%if (saturdayLineup[i].opening === false) {%>
-               hide
-             <%}%>
-             ">
-               <input
-                 type="checkbox"
-                 class="opening"
-                 name="<%=saturdayLineup[i].id%>"
-                 startTime="<%=saturdayLineup[i].trueStartTime%>"
-                 endTime="<%=saturdayLineup[i].trueEndTime%>"
-                 value="opening"
-                 id="<%=saturdayLineup[i].id%>"
-                 <% if (saturdayLineup[i].opening) { %>
-                   checked
-                 <% } %>
-                 />
-                 <label class="form-check-label" for="<%=saturdayLineup[i].id%>">Opening</label>
-            </div>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title">
+              <%=saturdayLineup[i].artist%>
+            </h1>
+            <p class="card-text"><%=saturdayLineup[i].startTime%> - <%=saturdayLineup[i].endTime%></p>
+            <span class="mainFlogSelector">
+              <input
+                type="hidden"
+                name="<%=saturdayLineup[i].id%>"
+                value="0"
+                >
 
 
+                <div class="pretty p-icon p-smooth">
+                  <input
+                    type="checkbox"
+                    class="selection"
+                    name="<%=saturdayLineup[i].id%>"
+                    startTime="<%=saturdayLineup[i].trueStartTime%>"
+                    endTime="<%=saturdayLineup[i].trueEndTime%>"
+                    value="selected"
+                    <% if (saturdayLineup[i].checked) { %>
+                      checked
+                    <% } %>
+                    />
+                    <div class="state p-success">
+                        <i class="icon fa fa-check"></i>
+                        <label></label>
+                    </div>
+                </div>
+              
 
 
-           <!-- set up for finale input -->
-           <input
-             type="hidden"
-             name="<%=saturdayLineup[i].id%>"
-             value="0"
-             >
 
+              </span>
+            <img src="<%=saturdayLineup[i].img%>" class="img-fluid frontCardImg">
 
+          </div>
+          <div class="card-footer text-muted">
+            <!-- <h3><%=saturdayLineup[i].artist%></h3> -->
+            <!-- <img src="<%=saturdayLineup[i].img%>" class="rounded"> -->
 
-             <div class="form-check
-             <%if (saturdayLineup[i].finale === false) {%>
-               hide
-             <%}%>
-             ">
-             <input
-                 type="checkbox"
-                 class="finale"
-                 name="<%=saturdayLineup[i].id%>"
-                 startTime="<%=saturdayLineup[i].trueStartTime%>"
-                 endTime="<%=saturdayLineup[i].trueEndTime%>"
-                 value="finale"
-                 id="<%=saturdayLineup[i].id%>"
-                 <% if (saturdayLineup[i].finale) { %>
-                   checked
-                 <% } %>
-                 />
-                <label class="form-check-label" for="<%=saturdayLineup[i].id%>">Finale</label>
-            </div>
+            <!-- set up for finale input -->
+            <input
+              type="hidden"
+              name="<%=saturdayLineup[i].id%>"
+              value="0"
+              >
+
+              <div class="form-check
+              <%if (saturdayLineup[i].finale === false) {%>
+                hide
+              <%}%>
+              ">
+                <input
+                  type="checkbox"
+                  class="finale"
+                  name="<%=saturdayLineup[i].id%>"
+                  startTime="<%=saturdayLineup[i].trueStartTime%>"
+                  endTime="<%=saturdayLineup[i].trueEndTime%>"
+                  value="finale"
+                  id="<%=saturdayLineup[i].id%>"
+                  <% if (saturdayLineup[i].finale) { %>
+                    checked
+                  <% } %>
+                  />
+                  <label class="form-check-label"
+                   for="<%=saturdayLineup[i].id%>">Finale</label>
+              </div>
+
+          </div>
+        </div>
 
 
 

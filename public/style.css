@@ -2,6 +2,8 @@ body {
   background-color: ivory;
   font-family: 'Dosis', sans-serif;
   background: linear-gradient(#1b75bc, #CC6462);
+  background-repeat: no-repeat;
+  min-height: 100vh
 }
 
 div {
@@ -61,4 +63,25 @@ span {
 .btn-outline-secondary {
   color: white;
   background-color: #2E164F
+}
+
+.mainselector, .card-text {
+  display: inline;
+}
+
+.mainCampSelector {
+  float: right;
+}
+
+.mainFlogSelector {
+  float: left;
+}
+
+.frontCardImg {
+  width: 100%
+}
+
+.pretty {
+  font-size: 3em;
+  margin-right: 0
 }

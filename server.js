@@ -48,6 +48,7 @@ app.get('/', (req, res) => {
 app.get('/seed', (req, res) => {
   SaturdayArtist.insertMany(lineup, (err, data) => {
     console.log(data);
+    res.send('seeded')
   })
 })
 

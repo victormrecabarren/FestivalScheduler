@@ -8,7 +8,7 @@ const saturdayItineraryController = require('./controllers/saturdayitinerary');
 const env = require('dotenv');
 
 const SaturdayArtist = require('./models/artists');
-const lineup = require('saturdayartists.js')
+const lineup = require('./saturdayartists.js')
 
 
 

@@ -82,7 +82,7 @@ const updatePageInputs = (target) => {
           // check if time to see opening of conflicting
           if ((selectedStart - compareStart)/1000/60 >= 10) {
             //make opening box checkable
-            $('.opening').eq(j).parent().removeClass('hide')
+            $('.opening').eq(j).parent().parent().removeClass('hide')
           }
 
           // check other type of configuration of conflicting
@@ -94,7 +94,7 @@ const updatePageInputs = (target) => {
           // check if time to see finale of conflicting
           if ((compareEnd - selectedEnd)/1000/60 >=10) {
             //make finale box checkable
-            $('.finale').eq(j).parent().removeClass('hide')
+            $('.finale').eq(j).parent().parent().removeClass('hide')
 
           }
 
@@ -124,9 +124,9 @@ const updatePageInputs = (target) => {
 
             // check if time to see opening of conflicting
             if ((selectedStart - compareStart)/1000/60 >= 10) {
-              //make opening box checkable
+
               $('.opening').eq(i).prop('checked', false);
-              $('.opening').eq(i).parent().addClass('hide')
+              $('.opening').eq(i).parent().parent().addClass('hide')
             }
 
             // check other type of configuration of conflicting
@@ -139,7 +139,7 @@ const updatePageInputs = (target) => {
             if ((compareEnd - selectedEnd)/1000/60 >=10) {
               //make finale box checkable
               $('.finale').eq(i).prop('checked', false);
-              $('.finale').eq(i).parent().addClass('hide')
+              $('.finale').eq(i).parent().parent().addClass('hide')
 
             }
 

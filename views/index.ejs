@@ -37,6 +37,7 @@
          <div class="card text-left">
            <div class="card-header">
              <!-- set up for opening input -->
+
              <input
                type="hidden"
                name="<%=saturdayLineup[i].id%>"
@@ -47,30 +48,41 @@
                  hide
                <%}%>
                ">
-                 <input
-                   type="checkbox"
-                   class="opening"
-                   name="<%=saturdayLineup[i].id%>"
-                   startTime="<%=saturdayLineup[i].trueStartTime%>"
-                   endTime="<%=saturdayLineup[i].trueEndTime%>"
-                   value="opening"
-                   id="<%=saturdayLineup[i].id%>"
-                   <% if (saturdayLineup[i].opening) { %>
-                     checked
-                   <% } %>
-                   />
-                 <label class="form-check-label"
-                  for="<%=saturdayLineup[i].id%>">
-                  See opening!
-                </label>
-               </div>
 
+
+
+               <div class="pretty p-icon p-smooth">
+                 <input
+                 type="checkbox"
+                 class="opening"
+                 name="<%=saturdayLineup[i].id%>"
+                 startTime="<%=saturdayLineup[i].trueStartTime%>"
+                 endTime="<%=saturdayLineup[i].trueEndTime%>"
+                 value="opening"
+                 id="<%=saturdayLineup[i].id%>"
+                 <% if (saturdayLineup[i].opening) { %>
+                   checked
+                 <% } %>
+                 />
+                   <div class="state p-success">
+                       <i class="icon fa fa-check"></i>
+                       <label class="form-check-label"
+                        for="<%=saturdayLineup[i].id%>">
+                        See opening!
+                      </label>
+                   </div>
+               </div>
+             </div>
            </div>
+
+
            <div class="card-body">
              <h1 class="card-title">
                <%=saturdayLineup[i].artist%>
              </h1>
              <p class="card-text"><%=saturdayLineup[i].startTime%> - <%=saturdayLineup[i].endTime%></p>
+
+
              <!-- set up for selection input -->
              <span class="mainCampSelector">
                <input
@@ -111,6 +123,22 @@
 
 
 
+
+
+               <!-- set up for opening input -->
+
+
+
+
+
+
+
+
+
+
+
+
+
              <!-- set up for finale input -->
              <input
                type="hidden"
@@ -123,22 +151,35 @@
                  hide
                <%}%>
                ">
+
+
+
+               <div class="pretty p-icon p-smooth">
                  <input
-                   type="checkbox"
-                   class="finale"
-                   name="<%=saturdayLineup[i].id%>"
-                   startTime="<%=saturdayLineup[i].trueStartTime%>"
-                   endTime="<%=saturdayLineup[i].trueEndTime%>"
-                   value="finale"
-                   id="<%=saturdayLineup[i].id%>"
-                   <% if (saturdayLineup[i].finale) { %>
-                     checked
-                   <% } %>
-                   />
-                   <label class="form-check-label"
-                    for="<%=saturdayLineup[i].id%>">
-                    Catch finale!
-                  </label>
+                 type="checkbox"
+                 class="finale"
+                 name="<%=saturdayLineup[i].id%>"
+                 startTime="<%=saturdayLineup[i].trueStartTime%>"
+                 endTime="<%=saturdayLineup[i].trueEndTime%>"
+                 value="finale"
+                 id="<%=saturdayLineup[i].id%>"
+                 <% if (saturdayLineup[i].finale) { %>
+                   checked
+                 <% } %>
+                 />
+                   <div class="state p-success">
+                       <i class="icon fa fa-check"></i>
+                       <label class="form-check-label"
+                        for="<%=saturdayLineup[i].id%>">
+                        Catch finale!
+                      </label>
+                   </div>
+               </div>
+
+
+
+
+
                </div>
 
            </div>
@@ -170,6 +211,11 @@
                 hide
               <%}%>
               ">
+
+
+
+
+              <div class="pretty p-icon p-smooth">
                 <input
                   type="checkbox"
                   class="opening"
@@ -182,11 +228,27 @@
                     checked
                   <% } %>
                   />
-                <label
-                  class="form-check-label"
-                  for="<%=saturdayLineup[i].id%>">
-                  See opening!
-                </label>
+                  <div class="state p-success">
+                      <i class="icon fa fa-check"></i>
+                      <label
+                        class="form-check-label"
+                        for="<%=saturdayLineup[i].id%>">
+                        See opening!
+                      </label>
+                  </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
               </div>
 
           </div>
@@ -244,6 +306,8 @@
                 hide
               <%}%>
               ">
+
+              <div class="pretty p-icon p-smooth">
                 <input
                   type="checkbox"
                   class="finale"
@@ -256,11 +320,24 @@
                     checked
                   <% } %>
                   />
-                  <label
-                    class="form-check-label"
-                    for="<%=saturdayLineup[i].id%>">
-                    Catch finale!
-                  </label>
+                  <div class="state p-success">
+                      <i class="icon fa fa-check"></i>
+                      <label
+                        class="form-check-label"
+                        for="<%=saturdayLineup[i].id%>">
+                        Catch finale!
+                      </label>
+                  </div>
+              </div>
+
+
+
+
+
+
+
+
+
               </div>
 
           </div>

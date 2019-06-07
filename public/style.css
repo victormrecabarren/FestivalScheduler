@@ -1,7 +1,6 @@
 body {
   background-color: ivory;
   font-family: 'Dosis', sans-serif;
-  background: linear-gradient(#1b75bc, #CC6462);
   background-repeat: no-repeat;
   min-height: 100vh
 }
@@ -14,8 +13,81 @@ input {
   cursor: pointer;
 }
 
+header {
+  background: linear-gradient(#1b75bc, #CC6462);
+  height: 500px;
+}
+
+.moon {
+  background: url('/static/images/moon.png');
+  width: 40%;
+  padding-top: 40%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  position: absolute;
+  right: -5%;
+  top: -60px;
+  margin: 0;
+  z-index: 2;
+}
+
+.logo {
+  background: url('/static/images/campheaderlogo.png');
+  padding-top: 40%;
+  width: 40%;
+  position: absolute;
+  right: 30%;
+  top: 3%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.cloudA {
+  background: url('/static/images/cloud1.png');
+  padding-top: 40%;
+  width: 40%;
+  background-repeat: repeat-x;
+  background-position: center center;
+  background-size: contain;
+  position:absolute;
+  animation: cloudsmove linear 40s infinite;
+}
+
+.cloudB {
+  background: url('/static/images/cloud2.png');
+  padding-top: 80%;
+  width: 80%;
+  background-repeat: repeat-x;
+  background-position: center center;
+  background-size: contain;
+  position:absolute;
+  animation: cloudsmove linear 60s infinite;
+}
+
+.cloudC {
+  background: url('/static/images/cloud3.png');
+  padding-top: 80%;
+  width: 120%;
+  background-repeat: repeat-x;
+  background-position: center center;
+  background-size: contain;
+  position:absolute;
+  right: -10%;
+  top: -20%;
+  animation: cloudsmove linear 35s infinite;
+  }
+
+
+@keyframes cloudsmove {
+  from {left: -100px}
+  to {left: 100%;}
+}
+
+
 .hide {
-  display: none;
+  opacity: 0;
 }
 
 .card {
@@ -84,4 +156,8 @@ span {
 .pretty {
   font-size: 3em;
   margin-right: 0
+}
+
+.invisible {
+  opacity: 0
 }

@@ -5,6 +5,10 @@
     <title></title>
   </head>
   <body>
+    <header>
+      <% include ./partials/header.ejs %>
+    </header>
+    
       <form action="/CampFlogGnaw/Saturday/MyItinerary?_method=PUT" method="post">
 
         <!-- Camp Stage -->
@@ -42,7 +46,9 @@
                    <% } %>
                    />
                  <label class="form-check-label"
-                  for="<%=saturdayLineup[i].id%>">Opening</label>
+                  for="<%=saturdayLineup[i].id%>">
+                  See opening!
+                </label>
                </div>
 
            </div>
@@ -116,7 +122,9 @@
                    <% } %>
                    />
                    <label class="form-check-label"
-                    for="<%=saturdayLineup[i].id%>">Finale</label>
+                    for="<%=saturdayLineup[i].id%>">
+                    Catch finale!
+                  </label>
                </div>
 
            </div>
@@ -160,8 +168,11 @@
                     checked
                   <% } %>
                   />
-                <label class="form-check-label"
-                 for="<%=saturdayLineup[i].id%>">Opening</label>
+                <label
+                  class="form-check-label"
+                  for="<%=saturdayLineup[i].id%>">
+                  See opening!
+                </label>
               </div>
 
           </div>
@@ -195,7 +206,7 @@
                         <label></label>
                     </div>
                 </div>
-              
+
 
 
 
@@ -231,8 +242,11 @@
                     checked
                   <% } %>
                   />
-                  <label class="form-check-label"
-                   for="<%=saturdayLineup[i].id%>">Finale</label>
+                  <label
+                    class="form-check-label"
+                    for="<%=saturdayLineup[i].id%>">
+                    Catch finale!
+                  </label>
               </div>
 
           </div>

@@ -77,7 +77,7 @@ const updatePageInputs = (target) => {
 
         if (compareEnd > selectedStart && compareEnd < selectedEnd) {
           // disable conflicting
-          $('.selection').eq(j).attr('disabled', 'disabled').parent().hide()
+          $('.selection').eq(j).attr('disabled', 'disabled').parent().addClass('invisible')
 
           // check if time to see opening of conflicting
           if ((selectedStart - compareStart)/1000/60 >= 10) {
@@ -89,7 +89,7 @@ const updatePageInputs = (target) => {
         } else if (compareStart < selectedEnd && compareStart > selectedStart) {
 
           //disable conflicting
-          $('.selection').eq(j).attr('disabled', 'disabled').parent().hide()
+          $('.selection').eq(j).attr('disabled', 'disabled').parent().addClass('invisible')
 
           // check if time to see finale of conflicting
           if ((compareEnd - selectedEnd)/1000/60 >=10) {
@@ -120,7 +120,7 @@ const updatePageInputs = (target) => {
           if (compareEnd > selectedStart && compareEnd < selectedEnd) {
             // disable conflicting
             console.log('about to un-disable: ', $('.selection').eq(i));
-            $('.selection').eq(i).removeAttr('disabled').parent().show()
+            $('.selection').eq(i).removeAttr('disabled').parent().removeClass('invisible')
 
             // check if time to see opening of conflicting
             if ((selectedStart - compareStart)/1000/60 >= 10) {
@@ -133,7 +133,7 @@ const updatePageInputs = (target) => {
           } else if (compareStart < selectedEnd && compareStart > selectedStart) {
 
             //disable conflicting
-            $('.selection').eq(i).removeAttr('disabled').parent().show()
+            $('.selection').eq(i).removeAttr('disabled').parent().removeClass('invisible')
 
             // check if time to see finale of conflicting
             if ((compareEnd - selectedEnd)/1000/60 >=10) {
@@ -162,55 +162,11 @@ const isChecked = (selected) => {
 
 };
 
-// function to hide act whose schedule conflicts with selection made
-// const hideConflicting = (selected) => {
-//   /// create Date Objects based on attribute passed to input
-//   let selectedStart = new Date($(selected).attr('starttime'))
-//   let selectedEnd = new Date($(selected).attr('endtime'));
-//
-// // iterate through all other acts to compare their times to selected times
-//   for (let i=0; i < $('.selection').length; i++) {
-//     // set time of compare items to js date objects
-//     let compareStart = new Date($('.selection').eq(i).attr('starttime'));
-//     let compareEnd = new Date($('.selection').eq(i).attr('endtime'));
-//
-//     // check one type of configuration of conflicting schedule
-//     if (compareEnd > selectedStart && compareEnd < selectedEnd) {
-//       // disable conflicting
-//       $('.selection').eq(i).attr('disabled', 'disabled')
-//
-//       // check if time to see opening of conflicting
-//       if ((selectedStart - compareStart)/1000/60 >= 10) {
-//         //make opening box checkable
-//         $('.opening').eq(i).parent().removeClass('hide')
-//       }
-//
-//       // check other type of configuration of conflicting
-//     } else if (compareStart < selectedEnd && compareStart > selectedStart) {
-//
-//       //disable conflicting
-//       $('.selection').eq(i).attr('disabled', 'disabled')
-//
-//       // check if time to see finale of conflicting
-//       if ((compareEnd - selectedEnd)/1000/60 >=10) {
-//         //make finale box checkable
-//         $('.finale').eq(i).parent().removeClass('hide')
-//
-//       }
-//     }
-//   }
-//
-
-// }
-
-
-//////
-
 
 // function to make previously conflicting acts display once again
-const showConflicting = (unselected) => {
-    console.log('going to display non conflicting acts now, since you unselected', unselected);
-}
+// const showConflicting = (unselected) => {
+//     console.log('going to display non conflicting acts now, since you unselected', unselected);
+// }
 
 
 $(() => {

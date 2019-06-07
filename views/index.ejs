@@ -5,10 +5,24 @@
     <title></title>
   </head>
   <body>
-    <header>
+
       <% include ./partials/header.ejs %>
-    </header>
-    
+      <nav id="myNav" class="sticky-top shadow p-3 mb-5">
+
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link active" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">   </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/CampFlogGnaw/Saturday/MyItinerary">My Day</a>
+              </li>
+            </ul>
+      </nav>
+    <main>
+
       <form action="/CampFlogGnaw/Saturday/MyItinerary?_method=PUT" method="post">
 
         <!-- Camp Stage -->
@@ -264,6 +278,9 @@
       <input type="submit" name="" value="submit">
 
           </form>
-
+        </main>
+    <footer>
+      <% include ./partials/footer.ejs %>
+    </footer>
   </body>
 </html>

@@ -1,9 +1,11 @@
+
+
 body {
   background-color: ivory;
   font-family: 'Dosis', sans-serif;
-  background-repeat: no-repeat;
-  min-height: 100vh
+  min-height: 100vh;
 }
+
 
 div {
   color: #2E164F;
@@ -14,19 +16,32 @@ input {
 }
 
 header {
-  background: linear-gradient(#1b75bc, #E26154);
+  background: linear-gradient(#1b75bc, #E66254);
   height: 500px;
   position: relative;
 }
 
 nav {
-  height: 100px;
-  width: 100%;
-  /* background-color: white; */
-  /* border: 1px red solid; */
-  position: absolute;
-  bottom: 0;
 
+}
+
+main {
+  background-color: #E66254;
+  min-width: 100vh
+}
+
+form, a {
+  position: relative;
+  z-index: 10;
+}
+
+footer {
+  height: 80vh;
+  width: 100%;
+  background-image: url('/static/images/footer.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover
 }
 
 .moon {
@@ -36,7 +51,7 @@ nav {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
-  position: absolute;
+  position: fixed;
   right: -5%;
   top: -60px;
   margin: 0;
@@ -53,6 +68,9 @@ nav {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
+  color: white;
+  text-align: center;
+  font-size: 1.5em
 }
 
 .cloudA {
@@ -62,7 +80,7 @@ nav {
   background-repeat: repeat-x;
   background-position: center center;
   background-size: contain;
-  position:absolute;
+  position: absolute;
   animation: cloudsmove linear 40s infinite;
 }
 
@@ -73,8 +91,8 @@ nav {
   background-repeat: repeat-x;
   background-position: center center;
   background-size: contain;
-  position:absolute;
-  animation: cloudsmove linear 60s infinite;
+  position: absolute;
+  animation: cloudsmove linear 70s infinite;
 }
 
 .cloudC {
@@ -84,17 +102,36 @@ nav {
   background-repeat: repeat-x;
   background-position: center center;
   background-size: contain;
-  position:absolute;
-  right: -10%;
-  top: -20%;
-  animation: cloudsmove linear 35s infinite;
+  position: absolute;
+  /* right: -10%;
+  top: -20%; */
+  animation: cloudsmove linear 100s infinite;
   }
 
 
-@keyframes cloudsmove {
-  from {left: -80%}
-  to {left: 100%;}
+.cloudbodygroup {
+  padding-top: 300px;
+  position: relative;
 }
+
+#firstgroup {
+  padding-left: 150%;
+}
+#secondgroup {
+  padding-left: 50%;
+}
+#thirdgroup {
+  padding-left: 0%;
+}
+#fourthgroup {
+  padding-left: 20%%;
+}
+
+
+/* @keyframes cloudsmove {
+  from {left: -150px}
+  to {left: 50%;}
+} */
 
 
 .hide {
@@ -102,8 +139,9 @@ nav {
 }
 
 .card {
-  margin: 5%;
+  margin: 0 5%;
 }
+
 
 .partial {
   width: 60%;
@@ -152,6 +190,10 @@ span {
   display: inline;
 }
 
+#bootstrapcards {
+  width: 90%;
+}
+
 .mainCampSelector {
   float: right;
 }
@@ -171,4 +213,22 @@ span {
 
 .invisible {
   opacity: 0
+}
+
+
+/* working on navbar */
+
+
+
+.mb-5, .my-5 {
+  margin-bottom: 0 !important;
+}
+
+#myNav {
+  background-color: #2D1650;
+  text-align: center
+}
+
+.nav, .nav-pills {
+  justify-content: center
 }

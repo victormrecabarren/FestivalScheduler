@@ -3,7 +3,7 @@
 body {
   background-color: ivory;
   font-family: 'Dosis', sans-serif;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 
@@ -128,10 +128,10 @@ footer {
 }
 
 
-/* @keyframes cloudsmove {
+@keyframes cloudsmove {
   from {left: -150px}
   to {left: 50%;}
-} */
+}
 
 
 .hide {
@@ -166,19 +166,20 @@ span {
 }
 
 .mini {
-  background-color: #f9dede
+  background-color: rgba(255, 150, 255, 0.7)
 }
 
 .faded {
-  color: #E26153
+  color: rgba(255, 255, 0, 1)
 }
 
 .partialNotification {
   margin-top: 5%;
   font-size: 1.4em;
   margin-left: 0;
-  background-color: #E26153;
+  background-color: rgba(255, 255, 0, 1);
   width: 100%;
+  color: black
 }
 
 .btn-outline-secondary {
@@ -192,6 +193,7 @@ span {
 
 #bootstrapcards {
   width: 90%;
+  background-color: rgba(255, 255, 255, 0.7)
 }
 
 .mainCampSelector {
@@ -231,4 +233,9 @@ span {
 
 .nav, .nav-pills {
   justify-content: center
+}
+
+.block {
+  height: 40px;
+  background-color: transparent
 }

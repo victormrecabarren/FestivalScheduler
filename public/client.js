@@ -178,4 +178,8 @@ $(() => {
 
   updatePageInputs();
 
+  $('#unselect').click(() => {
+    $(':checked').prop('checked', false)
+  })
+
 })

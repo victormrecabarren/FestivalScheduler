@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include ../partials/head.ejs %>
+
+    <title></title>
+  </head>
+  <body>
+    <% include ../partials/header.ejs %>
+
+    <nav id="myNav" class="sticky-top shadow p-3 mb-5">
+
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/CampFlogGnaw/Saturday/MyItinerary">New?</a>
+            </li>
+          </ul>
+    </nav>
+
+    <main>
+      <form>
+      <!-- Camp Stage -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm">
+
+
+      <%for (let i=0; i < saturdayLineup.length; i++) {%>
+     <% if (saturdayLineup[i].camp === true) { %>
+
+       <div class="card text-left">
+         <div class="card-body">
+           <div>
+           <h1 class="card-title">
+             <%=saturdayLineup[i].artist%>
+           </h1>
+           <a href="/CampFlogGnaw/admin/edit/<%=saturdayLineup[i].id%>" class="btn btn-warning registerbtn floatright" >Edit?</a>
+           </div>
+           <p class="card-text"><%=saturdayLineup[i].startTime%> - <%=saturdayLineup[i].endTime%></p>
+           <img src="<%=saturdayLineup[i].img%>" class="img-fluid frontCardImg">
+         </div>
+         </div>
+
+    <%  }%>
+    <% } %>
+    </div>
+
+    <!-- Flog Stage -->
+    <div class="col-sm">
+      <%for (let i=0; i < saturdayLineup.length; i++) {%>
+    <% if (saturdayLineup[i].flog === true) { %>
+      <div class="card text-right">
+        <div class="card-body">
+          <div class="editcontainer">
+          <h1 class="card-title">
+            <%=saturdayLineup[i].artist%>
+          </h1>
+          <a href="/CampFlogGnaw/admin/edit/<%=saturdayLineup[i].id%>" class="btn btn-warning registerbtn floatleft" >Edit?</a>
+          </div>
+          <p class="card-text"><%=saturdayLineup[i].startTime%> - <%=saturdayLineup[i].endTime%></p>
+          <img src="<%=saturdayLineup[i].img%>" class="img-fluid frontCardImg">
+        </div>
+        </div>
+
+
+   <%  }%>
+  <%}%>
+          </div>
+        </div>
+      </div>
+      </form>
+    </main>
+
+  </body>
+</html>

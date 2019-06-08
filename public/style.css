@@ -263,3 +263,23 @@ button[type=submit].btn-primary {
 margin-left: 50%;
 color: #2E164F
 }
+
+.inline {
+  display: inline;
+}
+
+.editcontainer {
+  width: 100%
+}
+
+.floatright {
+  float: right;
+  margin-bottom: 1%
+}
+
+.editcontainer a {
+  float: left;
+  margin-left: 0;
+  margin-bottom: 1%
+
+}

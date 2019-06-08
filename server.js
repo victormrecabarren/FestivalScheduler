@@ -6,7 +6,8 @@ const methodOverride = require('method-override');
 const saturdayLineupController = require('./controllers/saturdaylineup')
 const saturdayItineraryController = require('./controllers/saturdayitinerary');
 const sessionsController = require('./controllers/sessions.js')
-const usersController = require('./controllers/users.js')
+const usersController = require('./controllers/users.js');
+const adminController = require('./controllers/admin.js')
 const env = require('dotenv');
 const session = require('express-session');
 
@@ -44,6 +45,10 @@ app.use('/CampFlogGnaw/Saturday/MyItinerary', saturdayItineraryController);
 // sessions and users routes
 app.use('/CampFlogGnaw/sessions', sessionsController);
 app.use('/CampFlogGnaw/users', usersController)
+
+// admin routes
+app.use('/CampFlogGnaw/admin', adminController);
+
 
 
 

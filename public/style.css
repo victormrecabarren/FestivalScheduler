@@ -1,9 +1,9 @@
 
-
 body {
   background-color: ivory;
   font-family: 'Dosis', sans-serif;
   overflow-x: hidden;
+
 }
 
 
@@ -40,8 +40,9 @@ footer {
   width: 100%;
   background-image: url('/static/images/footer.jpg');
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover
+  background-position: top center;
+  background-size: cover;
+
 }
 
 .moon {
@@ -140,6 +141,7 @@ footer {
 
 .card {
   margin: 0 5% 10% 5%;
+  background-color: rgba(255, 255, 255, 0.8)
 }
 
 
@@ -212,6 +214,8 @@ span {
   font-size: 3em;
   margin-right: 0
 }
+
+
 
 .invisible {
   opacity: 0
@@ -292,12 +296,18 @@ color: #2E164F
 .showpageimg {
   width: 40%;
   border-radius: 200px;
+  z-index: 10
 }
 hr {
   color: gray;
   height: 2px;
   width: 70%;
   border-top: 1px solid rgba(0,0,0,1);
+  z-index: 10
+}
+
+.showpage h1 {
+  z-index: 10
 }
 
 .showpageFlexRow {
@@ -357,4 +367,32 @@ hr {
 .bottom h1, .bottom p {
   width: 80%;
   margin: 5%
+}
+
+.indexsubmitnav {
+  text-align:center;
+  background-color: transparent !important
+}
+
+.indexsubmitnav li {
+  margin: 0 auto
+}
+
+
+
+
+
+.card-header {
+background-color: rgba(255, 240, 240, 1);
+transition: all 0.5s ease;
+}
+
+.card-footer {
+  transition: all 0.5 ease;
+}
+
+
+.minishowbackground {
+  background-color: rgba(255, 150, 255, 0.6);
+
 }

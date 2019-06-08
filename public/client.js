@@ -82,8 +82,16 @@ const updatePageInputs = (target) => {
           // check if time to see opening of conflicting
           if ((selectedStart - compareStart)/1000/60 >= 10) {
             //make opening box checkable
-            $('.opening').eq(j).parent().parent().removeClass('hide')
-          }
+            $('.opening').eq(j).parent().parent().removeClass('hide');
+            // change bg of header
+              $('.opening').eq(j).parent().parent().parent().addClass('minishowbackground')
+          };
+
+
+
+            // .siblings().filter('.overTop').addClass('overTopInvisible')
+
+
 
           // check other type of configuration of conflicting
         } else if (compareStart < selectedEnd && compareStart > selectedStart) {
@@ -94,7 +102,9 @@ const updatePageInputs = (target) => {
           // check if time to see finale of conflicting
           if ((compareEnd - selectedEnd)/1000/60 >=10) {
             //make finale box checkable
-            $('.finale').eq(j).parent().parent().removeClass('hide')
+            $('.finale').eq(j).parent().parent().removeClass('hide');
+            // change footer bg color
+            $('.finale').eq(j).parent().parent().parent().addClass('minishowbackground')
 
           }
 
@@ -126,7 +136,9 @@ const updatePageInputs = (target) => {
             if ((selectedStart - compareStart)/1000/60 >= 10) {
 
               $('.opening').eq(i).prop('checked', false);
-              $('.opening').eq(i).parent().parent().addClass('hide')
+              $('.opening').eq(i).parent().parent().addClass('hide');
+              //remove header background
+              $('.opening').eq(i).parent().parent().parent().removeClass('minishowbackground')
             }
 
             // check other type of configuration of conflicting
@@ -139,7 +151,9 @@ const updatePageInputs = (target) => {
             if ((compareEnd - selectedEnd)/1000/60 >=10) {
               //make finale box checkable
               $('.finale').eq(i).prop('checked', false);
-              $('.finale').eq(i).parent().parent().addClass('hide')
+              $('.finale').eq(i).parent().parent().addClass('hide');
+              //change footer bg color back;
+              $('.finale').eq(i).parent().parent().parent().removeClass('minishowbackground')
 
             }
 

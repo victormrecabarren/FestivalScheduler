@@ -26,12 +26,12 @@
       <form action="<%=artist.id%>" method="post">
         <div class="form-group">
           <label for="artist">Act:</label>
-          <input type="text" class="form-control" id="artist" name="artist" value="<%=artist.artist%>">
+          <input type="text" class="form-control signin" id="artist" name="artist" value="<%=artist.artist%>">
         </div>
 
         <div class="form-group">
           <label for="stage">Camp or Flog stage?</label>
-          <input type="text" class="form-control" id="stage" name="camp"
+          <input type="text" class="form-control signin" id="stage" name="camp"
           <% if (artist.camp) { %>
             value="Camp">
            <%} else {%>
@@ -40,20 +40,20 @@
         </div>
         <div class="form-group">
           <label for="starttime">Start time:</label>
-          <input type="text" class="form-control" id="starttime" name="startTime" value="<%=artist.startTime%>">
+          <input type="text" class="form-control signin" id="starttime" name="startTime" value="<%=artist.startTime%>">
         </div>
         <div class="form-group">
           <label for="endtime">End time:</label>
-          <input type="text" class="form-control" id="endtime" name="endTime" value="<%=artist.endTime%>">
+          <input type="text" class="form-control signin" id="endtime" name="endTime" value="<%=artist.endTime%>">
         </div>
         <div class="form-group">
           <label for="album">Last album:</label>
-          <input type="text" class="form-control" id="endtime" name="album"
+          <input type="text" class="form-control signin" id="endtime" name="album"
           value="<%=artist.album%>">
         </div>
         <div class="form-group">
           <label for="bio">Bio:</label>
-          <textarea class="form-control" id="bio" rows="10" name="bio"><%=artist.bio%></textarea>
+          <textarea class="form-control signin" id="bio" rows="10" name="bio"><%=artist.bio%></textarea>
         </div>
         <input type="submit" class="btn btn-success" value="Submit Changes">
       </form>
@@ -62,5 +62,6 @@
       </form>
 
     </main>
+    <footer></footer>
   </body>
 </html>

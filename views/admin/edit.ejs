@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <% include ../partials/head.ejs %>
     <title></title>
   </head>
   <body>
-    congrats heres the edit page for
-    <%=artist.artist%>
+    <% include ../partials/header.ejs %>
+
+    <nav id="myNav" class="sticky-top shadow p-3 mb-5">
+
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/CampFlogGnaw/admin">Back</a>
+            </li>
+          </ul>
+    </nav>
+
+    <main>
+      <form action="<%=artist.id%>" method="post">
+        <div class="form-group">
+          <label for="artist">Act:</label>
+          <input type="text" class="form-control" id="artist" name="artist" value="<%=artist.artist%>">
+        </div>
+
+        <div class="form-group">
+          <label for="stage">Camp or Flog stage?</label>
+          <input type="text" class="form-control" id="stage" name="camp"
+          <% if (artist.camp) { %>
+            value="Camp">
+           <%} else {%>
+            value="Flog">
+          <%}%>
+        </div>
+        <div class="form-group">
+          <label for="starttime">Start time:</label>
+          <input type="text" class="form-control" id="starttime" name="startTime" value="<%=artist.startTime%>">
+        </div>
+        <div class="form-group">
+          <label for="endtime">End time:</label>
+          <input type="text" class="form-control" id="endtime" name="endTime" value="<%=artist.endTime%>">
+        </div>
+        <div class="form-group">
+          <label for="album">Last album:</label>
+          <input type="text" class="form-control" id="endtime" name="album"
+          value="<%=artist.album%>">
+        </div>
+        <div class="form-group">
+          <label for="bio">Bio:</label>
+          <textarea class="form-control" id="bio" rows="10" name="bio"><%=artist.bio%></textarea>
+        </div>
+        <input type="submit" value="Submit Changes">
+      </form>
+
+    </main>
   </body>
 </html>

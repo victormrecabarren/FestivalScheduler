@@ -7,7 +7,7 @@ const artistSchema = new mongoose.Schema({
   flog: {type: Boolean, required: true},
   startTime: {type: String, required: true},
   endTime: {type: String, required: true},
-  trueStartTime: {type: Date, required: true},
+  trueStartTime: Date,
   trueEndTime: Date,
   img: {type: String},
   album: {type: String},
@@ -18,7 +18,6 @@ const artistSchema = new mongoose.Schema({
   finale: {type: Boolean, default: false},
   comments: {type: String, default: ""},
   rating: {type: Number, min: 0, max: 5, default: 0},
-  favorite: String
 });
 
 const SaturdayArtist = mongoose.model('SaturdayArtist', artistSchema);

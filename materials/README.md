@@ -13,8 +13,13 @@ A display of the full itinerary for the festival that makes intuitive which acts
 # Who Would Use It:
 Festival goers!
 
-Wireframe:
+Wireframe 1:
 ![](https://github.com/victormrecabarren/FestivalScheduler/blob/master/materials/IMG_4842.jpeg?raw=true "Logo Title Text 1")
+
+Wireframe 2:
+![](https://github.com/victormrecabarren/FestivalScheduler/blob/master/msr9816qSAiyZVOcDn3%25MA.jpg?raw=true "Logo Title Text 1")
+
+
 
 Screenshot 1:
 ![](https://github.com/victormrecabarren/FestivalScheduler/blob/master/materials/Screen%20Shot%202019-06-08%20at%204.42.07%20PM.png?raw=true "Logo Title Text 1")

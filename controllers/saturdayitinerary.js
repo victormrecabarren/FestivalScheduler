@@ -6,7 +6,7 @@ const SaturdayLineup = require('../models/artists');
 
 //////////////////////////
 ////////////////////////// functions
-const addItineraryItem = (info, res) => {
+const addItineraryItem = (info, req, res) => {
   selectedArray = [];
   unselectedArray = [];
   openingArray = [];
@@ -36,7 +36,8 @@ const addItineraryItem = (info, res) => {
             SaturdayLineup.updateMany({_id: {$in: notFinaleArray}}, {$set: {finale: false}}, {multi: true}, () => {
               SaturdayLineup.find({$or: [{checked: true}, {opening: true}, {finale: true}]}).sort({trueStartTime: 'ascending'}).exec((err, data) => {
                 res.render('itinerary.ejs', {
-                  itinerary: data
+                  itinerary: data,
+                  currentUser: req.session.currentUser
                 })
               })
             });
@@ -52,13 +53,13 @@ const addItineraryItem = (info, res) => {
 
 //// SAT INDEX
 router.get('/', (req, res) => {
-  addItineraryItem(req.body, res)
+  addItineraryItem(req.body, req, res)
 });
 
 
 ///// SAT UPDATE route
 router.put('/', (req, res) => {
-  addItineraryItem(req.body, res)
+  addItineraryItem(req.body, req, res)
 })
 
 //// SAT UPDATE personal itinerary route

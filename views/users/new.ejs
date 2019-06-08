@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include ../partials/head.ejs %>
+    <title>Sign In</title>
+  </head>
+  <body>
+    <% include ../partials/header.ejs %>
+<main>
+    <% if (exists) {%>
+      <h1> That user already exists.</h1>
+    <%} else {%>
+      <h1 class="createaccounth1"> create an account </h1>
+  <%  }%>
+
+
+
+
+
+    <form class="" action="/CampFlogGnaw/users/" method="post">
+      <div class="form-group">
+        <label for="exampleInputEmail">Email address</label>
+        <input type="email" name="username" class="form-control signin" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" name="password" class="form-control signin" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+      <a href="/" class="btn btn-secondary">Cancel</a>
+
+
+    </form>
+
+    <div class="block"></div>
+    </main>
+
+
+  </body>
+</html>

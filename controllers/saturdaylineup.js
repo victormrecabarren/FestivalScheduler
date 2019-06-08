@@ -6,7 +6,8 @@ const SaturdayArtist = require('../models/artists');
 router.get('/', (req, res) => {
   SaturdayArtist.find({}).sort({trueStartTime: 'ascending'}).exec((err, data) => {
     res.render('index.ejs', {
-      saturdayLineup: data
+      saturdayLineup: data,
+      currentUser: req.session.currentUser
     });
   });
 });

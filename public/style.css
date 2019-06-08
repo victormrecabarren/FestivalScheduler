@@ -239,3 +239,27 @@ span {
   height: 40px;
   background-color: transparent
 }
+
+.loginbtn {
+  position:absolute;
+  right: 2%
+}
+
+
+
+.signin {
+
+  width: 80%
+}
+
+
+
+button[type=submit].btn-primary {
+  background-color: #2E164F;
+  border: 0px
+}
+
+.registerbtn {
+margin-left: 50%;
+color: #2E164F
+}

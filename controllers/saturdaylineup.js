@@ -12,4 +12,12 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  SaturdayArtist.findById(req.params.id, (err, data) => {
+    res.render('show.ejs', {
+      artist: data
+    })
+  })
+})
+
 module.exports = router

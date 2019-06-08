@@ -281,5 +281,80 @@ color: #2E164F
   float: left;
   margin-left: 0;
   margin-bottom: 1%
+}
 
+.showpage {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.showpageimg {
+  width: 40%;
+  border-radius: 200px;
+}
+hr {
+  color: gray;
+  height: 2px;
+  width: 70%;
+  border-top: 1px solid rgba(0,0,0,1);
+}
+
+.showpageFlexRow {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.showpageFlexRow h2 {
+  margin-left: 5%;
+  color: #F887CD;
+  text-align: center
+}
+
+.showpageFlexRow h3 {
+  margin-left: 5%;
+  text-align: center
+}
+
+.flexRowItem {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 40%
+}
+
+.flexRowItem2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 40%;
+  background-color: rgba(255, 150, 255, 0.6);
+  border-radius: 10px;
+  text-align: center;
+
+}
+
+
+
+
+.albumCover {
+  width: 80%;
+  border-radius: 20px;
+  margin: 0 auto
+}
+
+.bottom {
+  height: 600px;
+  width: 100%;
+  background-color: #F8F8F8;
+  text-align: left;
+  z-index: 10
+}
+
+.bottom h1, .bottom p {
+  width: 80%;
+  margin: 5%
 }

@@ -55,7 +55,10 @@
           <label for="bio">Bio:</label>
           <textarea class="form-control" id="bio" rows="10" name="bio"><%=artist.bio%></textarea>
         </div>
-        <input type="submit" value="Submit Changes">
+        <input type="submit" class="btn btn-success" value="Submit Changes">
+      </form>
+      <form class="" action="<%=artist.id%>?_method=DELETE" method="post">
+        <input type="submit" class="btn btn-danger" value="Delete?">
       </form>
 
     </main>

@@ -25,7 +25,28 @@ router.get('/edit/:id', (req, res) => {
 
 // POST to apply edits
 router.post('/edit/:id', (req, res) => {
+  if (req.body.camp === "Camp" || req.body.stage === "camp") {
+    req.body.camp = true;
+    req.body.flog = false
+  } else {
+    req.body.camp = false;
+    req.body.flog = true;
+  }
+  SaturdayLineup.updateOne({_id: req.params.id}, {$set: req.body}, (err, data) => {
+    res.redirect('/CampFlogGnaw/admin/');
+  });
+});
 
+// new route
+router.get('/new', (req, res) => {
+  SaturdayLineup.find({}, (err, data) => {
+    res.render('admin/new.ejs', {
+      info: data
+    })
+  })
+});
+
+router.post('/new', (req, res) => {
   if (req.body.camp === "Camp" || req.body.stage === "camp") {
     req.body.camp = true;
     req.body.flog = false
@@ -34,11 +55,15 @@ router.post('/edit/:id', (req, res) => {
     req.body.flog = true;
   }
 
+  SaturdayLineup.create(req.body, (err, data) => {
+    res.redirect('/')
+  })
+})
 
-
-  SaturdayLineup.updateOne({_id: req.params.id}, {$set: req.body}, (err, data) => {
-    res.redirect('/CampFlogGnaw/admin/');
-  });
+router.delete('/edit/:id', (req, res) => {
+  SaturdayLineup.findOneAndDelete({_id:req.params.id}, (err, data) => {
+    res.redirect('/')
+  })
 })
 
 

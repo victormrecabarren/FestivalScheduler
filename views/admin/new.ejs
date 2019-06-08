@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <% include ../partials/head.ejs %>
     <title></title>
   </head>
   <body>
+    <% include ../partials/header.ejs %>
+    <nav id="myNav" class="sticky-top shadow p-3 mb-5">
+
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/CampFlogGnaw/admin">Back</a>
+            </li>
+          </ul>
+    </nav>
+    <main>
+      <form class="" action="/CampFlogGnaw/admin/new" method="post">
+        <div class="form-group">
+          <label for="artist">Artist Name:</label>
+          <input type="text" class="form-control" id="artist" placeholder="Enter artist name" name="artist">
+        </div>
+        <div class="form-group">
+          <label for="stage">Stage</label>
+          <input type="text" class="form-control" id="stage" placeholder="Camp stage or Flog stage?" name="camp">
+        </div>
+        <div class="form-group">
+          <label for="starttime">Start Time</label>
+          <input type="text" class="form-control" id="starttime" placeholder="What time does the act start?" name="startTime">
+        </div>
+        <div class="form-group">
+          <label for="endtime">End Time</label>
+          <input type="text" class="form-control" id="endtime" placeholder="What time does it end?" name="endTime">
+        </div>
+        <div class="form-group">
+          <label for="img">Artist image</label>
+          <input type="text" class="form-control" id="img" placeholder="Optional url of picture of artist" name="img">
+        </div>
+        <div class="form-group">
+          <label for="album">Album</label>
+          <input type="text" class="form-control" id="album" placeholder="Most recent album and release year" name="album">
+        </div>
+        <div class="form-group">
+          <label for="albumCover">Album</label>
+          <input type="text" class="form-control" id="albumCover" placeholder="Optional url of album cover" name="albumCover">
+        </div>
+        <div class="form-group">
+          <label for="bio">Short artist bio:</label>
+          <textarea class="form-control" id="bio" rows="10" name="bio"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </main>
+
+
 
   </body>
 </html>

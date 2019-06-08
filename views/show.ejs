@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include ./partials/head.ejs %>
+    <title><%=artist.artist%></title>
+  </head>
+  <body>
+    <% include ./partials/header.ejs %>
+    <nav id="myNav" class="sticky-top shadow p-3 mb-5">
+
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">    </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/CampFlogGnaw/Saturday/MyItinerary">My Day</a>
+            </li>
+          </ul>
+    </nav>
+    <main class="showpage">
+        <div class="block">
+        </div>
+        <img src="<%=artist.img%>" class="showpageimg">
+        <hr></hr>
+        <h1> <%=artist.artist%> </h1>
+        <div class="block">
+        </div>
+      <div class="showpageFlexRow">
+        <div class="flexRowItem">
+          <h2>Latest Release:</h2>
+          <img src="<%=artist.albumCover%>" class="albumCover">
+          <h3><%=artist.album%></h3>
+        </div>
+        <div class="flexRowItem2">
+          <h2>Stage:</h2>
+
+
+          <%  if (artist.camp) {%>
+              <img src="/static/images/camp.png" class="albumCover">
+            <% } else { %>
+              <img src="/static/images/flog.png" class="albumCover">
+            <%}%>
+            <br>
+            Set begins:
+            <br>
+            <%=artist.startTime%>
+            <br>
+            <div class="block">
+            </div>
+            Set ends:
+            <br>
+            <%=artist.endTime%>
+        </div>
+      </div>
+      <div class="block">
+      </div>
+      <div class="bottom">
+        <h1>About <%=artist.artist%></h1>
+        <p><%=artist.bio%></p>
+      </div>
+
+
+
+    </main>
+
+
+
+  </body>
+</html>

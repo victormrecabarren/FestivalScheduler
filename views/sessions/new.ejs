@@ -9,16 +9,16 @@
 <main>
 
     <%if (wrong) {%>
-      <h1> incorrect password. try again? </h1>
+      <h1 class="admininputs"> incorrect password. try again? </h1>
   <%  } else {%>
-      <h1> sign in </h1>
+      <h1 class="admininputs"> sign in </h1>
     <%}%>
 
 
 
 
 
-    <form class="" action="/CampFlogGnaw/sessions/" method="post">
+    <form class="admininputs" action="/CampFlogGnaw/sessions/" method="post">
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" name="username" class="form-control signin" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

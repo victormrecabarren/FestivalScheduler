@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    <% include ../partials/header.ejs %>
+    <% include ../partials/headermedium.ejs %>
 
     <nav id="myNav" class="sticky-top shadow p-3 mb-5">
 
@@ -23,7 +23,7 @@
     </nav>
 
     <main>
-      <form action="<%=artist.id%>" method="post">
+      <form class="admininputs" action="<%=artist.id%>" method="post">
         <div class="form-group">
           <label for="artist">Act:</label>
           <input type="text" class="form-control signin" id="artist" name="artist" value="<%=artist.artist%>">
@@ -57,7 +57,7 @@
         </div>
         <input type="submit" class="btn btn-success" value="Submit Changes">
       </form>
-      <form class="" action="<%=artist.id%>?_method=DELETE" method="post">
+      <form class="admininputs" action="<%=artist.id%>?_method=DELETE" method="post">
         <input type="submit" class="btn btn-danger" value="Delete?">
       </form>
 

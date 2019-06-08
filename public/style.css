@@ -396,3 +396,7 @@ transition: all 0.5s ease;
   background-color: rgba(255, 150, 255, 0.6);
 
 }
+
+.admininputs {
+  margin-left: 5%
+}

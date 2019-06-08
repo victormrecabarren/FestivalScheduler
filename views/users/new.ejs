@@ -8,16 +8,16 @@
     <% include ../partials/headershort.ejs %>
 <main>
     <% if (exists) {%>
-      <h1> That user already exists.</h1>
+      <h1 class="admininputs"> That user already exists.</h1>
     <%} else {%>
-      <h1 class="createaccounth1"> create an account </h1>
+      <h1 class="createaccounth1 admininputs"> create an account </h1>
   <%  }%>
 
 
 
 
 
-    <form class="" action="/CampFlogGnaw/users/" method="post">
+    <form class="admininputs" action="/CampFlogGnaw/users/" method="post">
       <div class="form-group">
         <label for="exampleInputEmail">Email address</label>
         <input type="email" name="username" class="form-control signin" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">

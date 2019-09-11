@@ -3,7 +3,6 @@ body {
   background-color: ivory;
   font-family: 'Dosis', sans-serif;
   overflow-x: hidden;
-
 }
 
 
@@ -27,12 +26,14 @@ nav {
 
 main {
   background-color: #E66254;
-  min-width: 100vh
+  padding: 0 8%;
 }
 
 form, a {
   position: relative;
   z-index: 10;
+  max-width: 1000px;
+  margin: auto;
 }
 
 footer {
@@ -60,19 +61,19 @@ footer {
 }
 
 .logo {
-  background: url('/static/images/campheaderlogo.png');
-  padding-top: 40%;
-  width: 40%;
-  position: absolute;
-  right: 30%;
-  top: 1%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  margin: auto auto;
+  max-width: 400px;
   color: white;
   text-align: center;
-  font-size: 1.5em
+  font-size: 1.3em;
 }
+
+.logo > img {
+  width: 100%;
+}
+
 
 .cloudA {
   background: url('/static/images/cloud1.png');
